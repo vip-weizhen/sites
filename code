@@ -4,7 +4,7 @@
 const config = {
   title: "Mr.wei-webserver",                 //write your website title
   subtitle: "Keytop-Technology", //write your website subtitle
-  logo_icon: "paper plane",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
+  logo_icon: "sitemap",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
   hitokoto: true,                     //use hitokoto or not
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use

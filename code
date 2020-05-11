@@ -110,6 +110,32 @@ const config = {
           desc:"电报"
         }
       ]
+    },
+    	{
+      name:"何以解忧",
+      icon:"cloud",
+      list:[
+        {
+          url:"https://www.taobao.com/",
+          name:"淘宝",
+          desc:"淘！我喜欢"
+        },
+        {
+          url:"https://www.tmall.com/",
+          name:"天猫",
+          desc:"理想生活上天猫"
+        },
+        {
+          url:"https://www.jd.com/",
+          name:"京东",
+          desc:"我爱奶茶妹妹"
+        },
+        {
+          url:"https://www.amazon.cn/",
+          name:"亚马逊",
+          desc:"给你更大的世界"
+        }
+      ]
     }
   ]
 }

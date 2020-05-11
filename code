@@ -87,7 +87,7 @@ const config = {
     },
 {
       name:"何以解忧",
-      icon:"cloud",
+      icon:"shipping fast",
       list:[
         {
           url:"https://www.taobao.com/",

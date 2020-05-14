@@ -123,6 +123,11 @@ const config = {
           url:"https://www.huya.com/",
           name:"虎牙直播",
           desc:"1秒即开看直播"
+        },
+        {
+          url:"https://egame.qq.com/",
+          name:"企鹅电竞",
+          desc:"腾讯旗下电竞平台"
         }
       ]
     },

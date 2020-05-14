@@ -113,6 +113,16 @@ const config = {
           url:"https://v.qq.com/",
           name:"腾讯视频",
           desc:"不负好时光"
+        },
+	 {
+          url:"https://www.douyu.com/",
+          name:"斗鱼直播",
+          desc:"每个人的直播平台"
+        },
+	 {
+          url:"https://www.huya.com/",
+          name:"虎牙直播",
+          desc:"1秒即开看直播"
         }
       ]
     },

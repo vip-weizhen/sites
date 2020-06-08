@@ -43,6 +43,11 @@ const config = {
       name:"办公常用",
       icon:"graduation cap",
       list:[
+          {
+          url:"https://exmail.qq.com/login",
+          name:"腾讯企业邮箱",
+          desc:"不只是邮箱，更是一种高效办公新体验"
+        },
         {
           url:"http://console608.keytop.cn:51320/console/login.jsp;jsessionid=A67B361AA39302D78FD7C39C3D325370",
           name:"速停车",
@@ -161,6 +166,11 @@ const config = {
       name:"科学上网",
       icon:"cloud",
       list:[
+        {
+          url:"https://mail.google.com/",
+          name:"Gmail",
+          desc:"谷歌邮箱"
+        },
         {
           url:"https://www.youtube.com/",
           name:"YOUTUBE",

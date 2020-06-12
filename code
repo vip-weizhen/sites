@@ -83,10 +83,15 @@ const config = {
           name:"停车云助手",
           desc:"停车云助手"
         },
-		{
+		  {
           url:"http://ipark.keytop.cn/app/nkc/index.html#/login?redirect=%2Fdashboard",
           name:"科拓大脑",
           desc:"云脑管理系统"
+        },
+        {
+          url:"http://weizhen.ml",
+          name:"技术部网盘",
+          desc:"技术部公用网盘"
         }
       ]
     },
@@ -173,7 +178,7 @@ const config = {
         },
         {
           url:"https://www.youtube.com/",
-          name:"YOUTUBE",
+          name:"Youtube",
           desc:"油管"
         },
         {
@@ -215,10 +220,14 @@ addEventListener('fetch', event => {
 function getFavicon(url){
   if(url.match(/https{0,1}:\/\//)){
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url.split('//')[1];
-   return "https://icon.occ.hk/get.php?url=" + url;
+   //return "https://icon.occ.hk/get.php?url=" + url;
+   //return  url + '/favicon.ico'
+   return  "https://img.icons8.com/color/2x/paper-plane.png";
   }else{
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
-  return "https://icon.occ.hk/get.php?url=http://" + url;
+  //return "https://icon.occ.hk/get.php?url=http://" + url;
+  //return  url + '/favicon.ico'
+  return  "https://img.icons8.com/color/2x/paper-plane.png";
   } 
 }
 

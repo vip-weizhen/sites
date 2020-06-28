@@ -84,9 +84,9 @@ const config = {
           desc:"停车云助手"
         },
 		  {
-          url:"http://ipark.keytop.cn/app/nkc/index.html#/login?redirect=%2Fdashboard",
-          name:"科拓大脑",
-          desc:"云脑管理系统"
+          url:"http://file.weizhen.xyz:1234",
+          name:"文件传输服务",
+          desc:"文件传输服务"
         },
         {
           url:"http://weizhen.ml",

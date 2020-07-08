@@ -79,7 +79,7 @@ const config = {
           desc:"路侧停车管理"
         },
 		{
-          url:"https://kos.keytop.cn/",
+          url:"https://park.keytop.cn/unityp/login",
           name:"停车云助手",
           desc:"停车云助手"
         },

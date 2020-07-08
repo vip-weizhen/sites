@@ -84,6 +84,11 @@ const config = {
           desc:"停车云助手"
         },
 		  {
+          url:"http://db.nosou.work:8998/",
+          name:"车场基础资料",
+          desc:"车场基础资料查询"
+        },
+		  {
           url:"http://file.weizhen.xyz:1234",
           name:"文件传输服务",
           desc:"文件传输服务"

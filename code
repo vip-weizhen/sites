@@ -102,6 +102,11 @@ const config = {
           url:"http://weizhen.ml",
           name:"技术部网盘",
           desc:"技术部公用网盘"
+        },
+	   {
+          url:"https://kos.keytop.cn/dkqfront/pc.html#/Login?redirect=%2FIndex",
+          name:"商户助手PC版",
+          desc:"商户助手PC版"
         }
       ]
     },

@@ -102,6 +102,11 @@ const config = {
           url:"https://kos.keytop.cn/dkqfront/pc.html#/Login?redirect=%2FIndex",
           name:"商户助手PC版",
           desc:"商户助手PC版"
+        },
+	  {
+          url:"http://pic.jishubu.tk",
+          name:"项目案例图集",
+          desc:"项目案例图集"
         }
       ]
     },

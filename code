@@ -308,8 +308,8 @@ function renderHTML(index,seller) {
       <link href="https://cdn.jsdelivr.net/gh/sleepwood/cf-worker-dir@0.1.1/style.min.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.js"></script>
-      <link rel="shortcut icon" href="https://yanxuan.nosdn.127.net/56761fad551a0b988510a66af2840cea.png" />      //favicon配置
-      <link rel="bookmark" href="https://yanxuan.nosdn.127.net/56761fad551a0b988510a66af2840cea.png" type="image/x-icon"　/>  //favicon配置
+      <link rel="shortcut icon" href="https://yanxuan.nosdn.127.net/56761fad551a0b988510a66af2840cea.png" />
+      <link rel="bookmark" href="https://yanxuan.nosdn.127.net/56761fad551a0b988510a66af2840cea.png" type="image/x-icon"　/>
   </head>
   <body>
     ${index}

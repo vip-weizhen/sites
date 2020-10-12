@@ -89,6 +89,11 @@ const config = {
           desc:"运维中心管理平台"
         },
 		  {
+          url:"https://dc.keytop.cn/app/manage/index.html",
+          name:"科拓BI系统",
+          desc:"科拓BI系统"
+        },
+		  {
           url:"http://file.jishubu.tk:1234",
           name:"文件传输服务",
           desc:"文件传输服务"

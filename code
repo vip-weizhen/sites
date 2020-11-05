@@ -107,6 +107,11 @@ const config = {
           url:"http://pic.jishubu.tk",
           name:"项目案例图集",
           desc:"项目案例图集"
+        },
+	  {
+          url:"http://file.jishubu.tk:12345",
+          name:"技术部数据中心",
+          desc:"Keytop-Nas"
         }
       ]
     },

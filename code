@@ -54,7 +54,7 @@ const config = {
           desc:"速停车后台管理"
         },
         {
-          url:"https://dc.keytop.cn/app/normal/v1/web/login.html?redirect_uri=http://yun.keytop.cn/kite/j_security_check&token=null&sys_code=null",
+          url:"http://yun.keytop.cn/kite/page/index.html",
           name:"风筝",
           desc:"风筝管理系统"
         },

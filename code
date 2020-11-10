@@ -104,6 +104,11 @@ const config = {
           desc:"商户助手PC版"
         },
 	  {
+          url:"https://qianchuan.keytop.cn/groupfront/index",
+          name:"科拓千川平台",
+          desc:"科拓千川平台"
+        },
+	  {
           url:"http://pic.jishubu.tk",
           name:"项目案例图集",
           desc:"项目案例图集"

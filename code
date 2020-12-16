@@ -114,7 +114,7 @@ const config = {
           desc:"项目案例图集"
         },
 	  {
-          url:"http://file.jishubu.tk:1233",
+          url:"http://disk.weizhen.xyz:5213/s/e7170117-408b-4055-b640-ed2248698f7e",
           name:"技术部数据中心",
           desc:"Keytop-Nas"
         }

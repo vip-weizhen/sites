@@ -20,9 +20,13 @@ const config = {
       name:"必 应",
       template:"https://www.bing.com/search?q=$s"
     },
-    {
+     {
       name:"搜 狗",
       template:"https://www.sogou.com/web?query=$s"
+    },
+    {
+      name:"高德地图",
+      template:"https://ditu.amap.com/search?query=$s"
     }
   ],
   selling_ads: false,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)

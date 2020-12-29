@@ -88,7 +88,7 @@ const config = {
           desc:"停车云助手"
         },
 		  {
-          url:"https://ktbrain-ops.keytop.cn/",
+          url:"https://ktbrain-ops.keytop.cn/#/parkList",
           name:"运维中心管理平台",
           desc:"运维中心管理平台"
         },
@@ -174,7 +174,7 @@ const config = {
       name:"何以解忧",
       icon:"shopping cart",
       list:[
-        {
+          {
           url:"https://www.taobao.com/",
           name:"淘宝",
           desc:"淘！我喜欢"

@@ -9,6 +9,10 @@ const config = {
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use
     {
+      name:"多 吉",
+      template:"https://www.dogedoge.com/results?q=$s"
+    },
+       {
       name:"百 度",
       template:"https://www.baidu.com/s?wd=$s"
     },

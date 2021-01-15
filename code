@@ -92,7 +92,7 @@ const config = {
           desc:"停车云助手"
         },
 		  {
-          url:"https://ktbrain-ops.keytop.cn/#/parkList",
+          url:"https://yunwei.keytop.cn",
           name:"运维中心管理平台",
           desc:"运维中心管理平台"
         },

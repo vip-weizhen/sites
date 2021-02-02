@@ -127,7 +127,7 @@ const config = {
           desc:"项目案例图集"
         },
 	  {
-          url:"http://disk.weizhen.xyz:5213/s/486bc26d-23f4-461f-b00e-bd26410cdcda",
+          url:"http://disk.weizhen.xyz:5213/s/ebcbc256-1ddf-41c8-a90a-e2c44ff027b2",
           name:"技术部数据中心",
           desc:"Keytop-Nas"
         }

@@ -9,10 +9,6 @@ const config = {
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use
     {
-      name:"多 吉",
-      template:"https://www.dogedoge.com/results?q=$s"
-    },
-       {
       name:"百 度",
       template:"https://www.baidu.com/s?wd=$s"
     },
@@ -76,11 +72,6 @@ const config = {
           name:"大物业",
           desc:"车场集中管理平台"
         },
-		 {
-          url:"http://oa.keytop.com.cn/",
-          name:"科拓OA",
-          desc:"科拓OA系统"
-        },
 		{
           url:"http://ktapps.keytop.cn/road/loginInit.html",
           name:"路侧停车",
@@ -130,6 +121,11 @@ const config = {
           url:"http://disk.weizhen.xyz:5213/s/ebcbc256-1ddf-41c8-a90a-e2c44ff027b2",
           name:"技术部数据中心",
           desc:"Keytop-Nas"
+        },
+    {
+          url:"http://nosou.work:5244/%E6%89%80%E6%9C%89%E9%A1%B9%E7%9B%AE%E5%A4%87%E4%BB%BD",
+          name:"5.0数据库备份",
+          desc:"数据库备份"
         }
       ]
     },
@@ -290,7 +286,7 @@ function renderHeader(){
       return item(link.template,link.name);
     }
   }).join(""))
-  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.dogedoge.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
+  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.baidu.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
   return el('header',[],el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],(config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + el('div',['id="title"','class="ui text container"'],title + (config.search ? input + menu :"") + `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : ''}`)))
 }
 

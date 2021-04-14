@@ -118,9 +118,9 @@ const config = {
           desc:"项目案例图集"
         },
 	  {
-          url:"http://disk.weizhen.xyz:5213/s/ebcbc256-1ddf-41c8-a90a-e2c44ff027b2",
+          url:"http://disk.weizhen.xyz:5200",
           name:"技术部数据中心",
-          desc:"Keytop-Nas"
+          desc:"Ketyop-NAS"
         },
     {
           url:"http://nosou.work:5244/%E6%89%80%E6%9C%89%E9%A1%B9%E7%9B%AE%E5%A4%87%E4%BB%BD",

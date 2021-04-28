@@ -123,7 +123,7 @@ const config = {
           desc:"Ketyop-NAS"
         },
     {
-          url:"http://nosou.work:5244/%E6%89%80%E6%9C%89%E9%A1%B9%E7%9B%AE%E5%A4%87%E4%BB%BD",
+          url:"http://nosou.work:5244",
           name:"5.0数据库备份",
           desc:"数据库备份"
         }

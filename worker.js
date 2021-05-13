@@ -25,6 +25,10 @@ const config = {
       template:"https://www.sogou.com/web?query=$s"
     },
     {
+      name:"百度地图",
+      template:"https://map.baidu.com/search?querytype=s&da_src=shareurl&wd=$s"
+    },
+     {
       name:"高德地图",
       template:"https://ditu.amap.com/search?query=$s"
     }
@@ -257,11 +261,13 @@ function getFavicon(url){
    //return "https://icon.occ.hk/get.php?url=" + url;
    //return  url + '/favicon.ico'
    return  "https://img.icons8.com/color/2x/paper-plane.png";
+  // return  "https://img.icons8.com/fluent/144/000000/strawberry.png"
   }else{
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
   //return "https://icon.occ.hk/get.php?url=http://" + url;
   //return  url + '/favicon.ico'
   return  "https://img.icons8.com/color/2x/paper-plane.png";
+  //return  "https://img.icons8.com/fluent/144/000000/strawberry.png";
   } 
 }
 

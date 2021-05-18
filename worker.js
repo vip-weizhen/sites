@@ -25,8 +25,8 @@ const config = {
       template:"https://www.bing.com/search?q=$s"
     },
      {
-      name:"搜 狗",
-      template:"https://www.sogou.com/web?query=$s"
+      name:"号码归属",
+      template:"https://www.ip138.com/mobile.asp?action=mobile&mobile=$s"
     },
     {
       name:"百度地图",
@@ -90,6 +90,11 @@ const config = {
           name:"停车云助手",
           desc:"停车云助手"
         },
+          {
+          url:"http://kp-open.keytop.cn/api/index.html",
+          name:"科拓智慧停车开发平台",
+          desc:"接口管理平台"
+        },
 		  {
           url:"https://yunwei.keytop.cn",
           name:"运维中心管理平台",
@@ -103,11 +108,6 @@ const config = {
 		  {
           url:"http://file.jishubu.tk:1234",
           name:"文件传输服务",
-          desc:"文件传输服务"
-        },
-        	  {
-          url:"http://222.186.59.133:10101",
-          name:"文件传输服务（高速）",
           desc:"文件传输服务"
         },
 	   {

@@ -27,6 +27,10 @@ const config = {
      {
       name:"号码归属",
       template:"https://www.ip138.com/mobile.asp?action=mobile&mobile=$s"
+    }, 
+    {
+      name:"有道翻译",
+      template:"http://mobile.youdao.com/dict?le=eng&q=$s"
     },
     {
       name:"百度地图",

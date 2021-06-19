@@ -110,7 +110,7 @@ const config = {
           desc:"科拓BI系统"
         },
 		  {
-          url:"http://file.jishubu.tk:1234",
+          url:"http://file.weizhen.xyz:1234",
           name:"文件传输服务",
           desc:"文件传输服务"
         },

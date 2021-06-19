@@ -20,10 +20,6 @@ const config = {
       name:"谷 歌",
       template:"https://www.google.com/search?q=$s"
     },
-    {
-      name:"必 应",
-      template:"https://www.bing.com/search?q=$s"
-    },
      {
       name:"号码归属",
       template:"https://www.ip138.com/mobile.asp?action=mobile&mobile=$s"

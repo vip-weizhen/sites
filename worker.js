@@ -116,7 +116,7 @@ const config = {
           desc:"商户助手PC版"
         },
 	  {
-          url:"https://qianchuan.keytop.cn/groupfront/index",
+          url:"https://yongce.keytop.cn/groupfront/login",
           name:"科拓永策平台",
           desc:"科拓永策平台"
         },

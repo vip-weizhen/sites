@@ -117,8 +117,8 @@ const config = {
         },
 	  {
           url:"https://qianchuan.keytop.cn/groupfront/index",
-          name:"科拓千川平台",
-          desc:"科拓千川平台"
+          name:"科拓永策平台",
+          desc:"科拓永策平台"
         },
 	  {
           url:"http://pic.jishubu.tk",

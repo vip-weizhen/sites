@@ -91,7 +91,7 @@ const config = {
           desc:"停车云助手"
         },
           {
-          url:"https://docs.apipost.cn/preview/19bf3e9c74e0fd07/6111ee9e5c719b1c",
+          url:"https://api.weizhen.xyz",
           name:"科拓停车统一接口示例",
           desc:"统一接口示例"
         },

@@ -20,14 +20,6 @@ const config = {
       name:"谷 歌",
       template:"https://www.google.com/search?q=$s"
     },
-     {
-      name:"号码归属",
-      template:"https://www.ip138.com/mobile.asp?action=mobile&mobile=$s"
-    }, 
-    {
-      name:"有道翻译",
-      template:"http://mobile.youdao.com/dict?le=eng&q=$s"
-    },
     {
       name:"百度地图",
       template:"https://map.baidu.com/search?querytype=s&da_src=shareurl&wd=$s"
@@ -35,6 +27,10 @@ const config = {
      {
       name:"高德地图",
       template:"https://ditu.amap.com/search?query=$s"
+    },
+      {
+      name:"项目归属",
+      template:"http://data.weizhen.xyz:7099/?name=$s"
     }
   ],
   selling_ads: false,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)

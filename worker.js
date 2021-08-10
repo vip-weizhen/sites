@@ -117,7 +117,7 @@ const config = {
           desc:"科拓永策平台"
         },
 	  {
-          url:"http://pic.jishubu.tk",
+          url:"http://pic.wzsos.tk/",
           name:"项目案例图集",
           desc:"项目案例图集"
         },

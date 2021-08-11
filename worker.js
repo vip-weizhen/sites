@@ -229,6 +229,11 @@ const config = {
           name:"Twitter",
           desc:"推特"
         },
+          {
+          url:"https://www.instagram.com/",
+          name:"Instagram",
+          desc:"照片墙"
+        },
         {
           url:"https://web.telegram.org/#/im",
           name:"Telegram",

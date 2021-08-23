@@ -30,7 +30,7 @@ const config = {
     },
       {
       name:"项目归属",
-      template:"http://data.weizhen.xyz:7099/?name=$s"
+      template:"http://www.weizhen.xyz:7099/?name=$s"
     }
   ],
   selling_ads: false,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
@@ -266,13 +266,13 @@ function getFavicon(url){
    //return "https://icon.occ.hk/get.php?url=" + url;
    //return  url + '/favicon.ico'
    return  "https://img.icons8.com/color/2x/paper-plane.png";
-  // return  "https://img.icons8.com/fluent/144/000000/strawberry.png"
+  // return  "https://img.icons8.com/color/50/000000/wedding-day--v1.png"
   }else{
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
   //return "https://icon.occ.hk/get.php?url=http://" + url;
   //return  url + '/favicon.ico'
-  return  "https://img.icons8.com/color/2x/paper-plane.png";
-  //return  "https://img.icons8.com/fluent/144/000000/strawberry.png";
+   return  "https://img.icons8.com/color/2x/paper-plane.png";
+ // return  "https://img.icons8.com/color/50/000000/wedding-day--v1.png";
   } 
 }
 

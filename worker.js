@@ -235,9 +235,14 @@ const config = {
           desc:"照片墙"
         },
         {
-          url:"https://web.telegram.org/#/im",
-          name:"Telegram",
-          desc:"电报"
+          url:"https://github.com/",
+          name:"GitHub",
+          desc:"代码托管平台"
+        },
+         {
+          url:"https://www.cloudflare.com/",
+          name:"Cloudflare",
+          desc:"构建更好的互联网"
         }
       ]
     }
@@ -266,13 +271,13 @@ function getFavicon(url){
    //return "https://icon.occ.hk/get.php?url=" + url;
    //return  url + '/favicon.ico'
    return  "https://img.icons8.com/color/2x/paper-plane.png";
-  // return  "https://img.icons8.com/color/50/000000/wedding-day--v1.png"
+   //return  "https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-chinese-knot-china-wanicon-flat-wanicon.png"
   }else{
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
   //return "https://icon.occ.hk/get.php?url=http://" + url;
   //return  url + '/favicon.ico'
    return  "https://img.icons8.com/color/2x/paper-plane.png";
- // return  "https://img.icons8.com/color/50/000000/wedding-day--v1.png";
+  //return  "https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-chinese-knot-china-wanicon-flat-wanicon.png";
   } 
 }
 

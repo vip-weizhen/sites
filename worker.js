@@ -235,6 +235,11 @@ const config = {
           desc:"照片墙"
         },
         {
+          url:"https://web.telegram.org/#/im",
+          name:"Telegram",
+          desc:"电报"
+        },
+        {
           url:"https://github.com/",
           name:"GitHub",
           desc:"代码托管平台"

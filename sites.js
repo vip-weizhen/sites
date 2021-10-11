@@ -275,14 +275,14 @@ function getFavicon(url){
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url.split('//')[1];
    //return "https://icon.occ.hk/get.php?url=" + url;
    //return  url + '/favicon.ico'
-   return  "https://img.icons8.com/color/2x/paper-plane.png";
-   //return  "https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-chinese-knot-china-wanicon-flat-wanicon.png"
+   //return  "https://img.icons8.com/color/2x/paper-plane.png";
+   return "https://cdn.jsdelivr.net/gh/vip-weizhen/CDN/zhifeiji.png";
   }else{
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
   //return "https://icon.occ.hk/get.php?url=http://" + url;
   //return  url + '/favicon.ico'
-   return  "https://img.icons8.com/color/2x/paper-plane.png";
-  //return  "https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-chinese-knot-china-wanicon-flat-wanicon.png";
+   //return  "https://img.icons8.com/color/2x/paper-plane.png";
+  return "https://cdn.jsdelivr.net/gh/vip-weizhen/CDN/zhifeiji.png";
   } 
 }
 

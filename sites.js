@@ -29,6 +29,10 @@ const config = {
       template:"https://ditu.amap.com/search?query=$s"
     },
       {
+      name:"快递查询",
+      template:"https://www.kuaidi100.com/?coname=toutiao&nu=$s"
+    },
+      {
       name:"项目归属",
       template:"http://www.weizhen.xyz:7099/?name=$s"
     }

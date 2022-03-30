@@ -29,12 +29,12 @@ const config = {
       template:"https://ditu.amap.com/search?query=$s"
     },
       {
-      name:"快递查询",
-      template:"https://www.kuaidi100.com/?coname=toutiao&nu=$s"
+      name:"调试记录",
+      template:"http://118.31.171.185:7777/?name=$s"
     },
       {
       name:"项目归属",
-      template:"http://www.weizhen.xyz:7099/?name=$s"
+      template:"http://118.31.171.185:7099/?name=$s"
     }
   ],
   selling_ads: false,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
@@ -106,7 +106,7 @@ const config = {
           desc:"科拓BI系统"
         },
 		  {
-          url:"http://file.weizhen.xyz:1234",
+          url:"http://118.31.171.185:1234",
           name:"文件传输服务",
           desc:"文件传输服务"
         },
@@ -126,14 +126,14 @@ const config = {
           desc:"项目案例图集"
         },
 	  {
-          url:"http://disk.weizhen.xyz:5200",
+          url:"https://pan.weizhen.xyz",
           name:"技术部数据中心",
           desc:"Ketyop-NAS"
         },
     {
-          url:"http://nosou.work:5244",
-          name:"5.0数据库备份",
-          desc:"数据库备份"
+          url:"https://doc.weixin.qq.com/txdoc/apply_page?k=AD4AmwcwAA4CDxHO4iAMgA4Ab3AKg#/login",
+          name:"维修替换料号表",
+          desc:"维修替换料号表(实时更新)"
         }
       ]
     },
@@ -386,16 +386,6 @@ function renderHTML(index,seller) {
           $('#seller').modal('show');
       });
     </script>
-    <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?11ca25af2668f4d1011edef392df931f";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
   </body>
 
   </html>`

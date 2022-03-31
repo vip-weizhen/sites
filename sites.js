@@ -9,7 +9,7 @@ const config = {
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use
     {
-      name:"头条搜索",
+      name:"搜头条",
       template:"https://so.toutiao.com/search?dvpf=pc&source=input&keyword=$s"
     },
       {
@@ -29,7 +29,7 @@ const config = {
       template:"https://ditu.amap.com/search?query=$s"
     },
     {
-      name:"快递查询",
+      name:"查快递",
       template:"https://www.kuaidi100.com/?coname=toutiao&nu=$s"
     },
       {

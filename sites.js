@@ -28,6 +28,10 @@ const config = {
       name:"高德地图",
       template:"https://ditu.amap.com/search?query=$s"
     },
+    {
+      name:"快递查询",
+      template:"https://www.kuaidi100.com/?coname=toutiao&nu=$s"
+    },
       {
       name:"调试记录",
       template:"http://118.31.171.185:7777/?name=$s"

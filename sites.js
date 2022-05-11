@@ -62,7 +62,7 @@ const config = {
           {
           url:"https://exmail.qq.com/login",
           name:"腾讯企业邮箱",
-          desc:"不只是邮箱，更是一种高效办公新体验"
+          desc:"专业、安全的企业邮箱服务"
         },
         {
           url:"http://console608.keytop.cn:51320/console/login.jsp;jsessionid=A67B361AA39302D78FD7C39C3D325370",
@@ -96,8 +96,8 @@ const config = {
         },
           {
           url:"https://api.weizhen.xyz",
-          name:"科拓停车统一接口示例",
-          desc:"统一接口示例"
+          name:"科拓智慧停车接口示例",
+          desc:"接口示例"
         },
 		  {
           url:"https://yunwei.keytop.cn",
@@ -204,7 +204,7 @@ const config = {
         {
           url:"https://www.jd.com/",
           name:"京东",
-          desc:"我爱奶茶妹妹"
+          desc:"多快好省,购物上京东！"
         },
         {
           url:"https://www.amazon.cn/",

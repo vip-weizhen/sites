@@ -283,14 +283,14 @@ function getFavicon(url){
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url.split('//')[1];
    //return "https://icon.occ.hk/get.php?url=" + url;
    //return  url + '/favicon.ico'
-   //return  "https://img.icons8.com/color/2x/paper-plane.png";
-   return "https://cdn.jsdelivr.net/gh/vip-weizhen/CDN/zhifeiji.png";
+   return  "https://img.icons8.com/color/2x/paper-plane.png";
+
   }else{
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
   //return "https://icon.occ.hk/get.php?url=http://" + url;
   //return  url + '/favicon.ico'
-   //return  "https://img.icons8.com/color/2x/paper-plane.png";
-  return "https://cdn.jsdelivr.net/gh/vip-weizhen/CDN/zhifeiji.png";
+   return  "https://img.icons8.com/color/2x/paper-plane.png";
+
   } 
 }
 
@@ -357,12 +357,12 @@ function renderHTML(index,seller) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>${config.title} - ${config.subtitle}</title>
-      <link href="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.css" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/gh/sleepwood/cf-worker-dir@0.1.1/style.min.css" rel="stylesheet">
-      <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.js"></script>
-      <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/vip-weizhen/CDN/sites.png" />
-      <link rel="bookmark" href="https://cdn.jsdelivr.net/gh/vip-weizhen/CDN/sites.png" type="image/x-icon"　/>
+      <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+      <link href="https://fastly.jsdelivr.net/gh/sleepwood/cf-worker-dir@0.1.1/style.min.css" rel="stylesheet">
+      <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.js"></script>
+      <link rel="shortcut icon" href="https://pic.imgdb.cn/item/6283521009475431299ccc20.png" />
+      <link rel="bookmark" href="https://pic.imgdb.cn/item/6283521009475431299ccc20.png" type="image/x-icon"　/>
   </head>
   <body>
     ${index}

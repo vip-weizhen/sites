@@ -37,7 +37,7 @@ const config = {
       template:"http://118.31.171.185:7777/?name=$s"
     },
       {
-      name:"项目归属",
+      name:"售后维护",
       template:"http://118.31.171.185:7099/?name=$s"
     }
   ],
@@ -120,14 +120,14 @@ const config = {
           desc:"商户助手PC版"
         },
 	  {
-          url:"https://yongce.keytop.cn/groupfront/login",
+          url:"https://yongce.keytop.cn/unityp/login",
           name:"科拓永策平台",
           desc:"科拓永策平台"
         },
 	  {
-          url:"http://pic.wzsos.tk/",
-          name:"项目案例图集",
-          desc:"项目案例图集"
+          url:"http://prj.nosou.work:8998/",
+          name:"项目信息记录🔥",
+          desc:"项目信息"
         },
 	  {
           url:"https://pan.weizhen.xyz",
@@ -138,6 +138,26 @@ const config = {
           url:"https://doc.weixin.qq.com/txdoc/apply_page?k=AD4AmwcwAA4CDxHO4iAMgA4Ab3AKg#/login",
           name:"维修替换料号表",
           desc:"维修替换料号表(实时更新)"
+        },
+    {
+          url:"https://find-car-admin.keytop.cn/fcfront/login",
+          name:"3D自研地图管理🔥",
+          desc:"自研地图管理"
+        },
+        {
+          url:"https://sites.weizhen.xyz",
+          name:"虚位以待",
+          desc:"虚位以待"
+        },
+        {
+          url:"https://sites.weizhen.xyz",
+          name:"虚位以待",
+          desc:"虚位以待"
+        },
+        {
+          url:"https://sites.weizhen.xyz",
+          name:"虚位以待",
+          desc:"虚位以待"
         }
       ]
     },
@@ -358,7 +378,7 @@ function renderHTML(index,seller) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>${config.title} - ${config.subtitle}</title>
       <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
-      <link href="https://fastly.jsdelivr.net/gh/sleepwood/cf-worker-dir@0.1.1/style.min.css" rel="stylesheet">
+      <link href="https://fastly.jsdelivr.net/gh/vip-weizhen/sites/style.min.css" rel="stylesheet">
       <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.js"></script>
       <link rel="shortcut icon" href="https://pic.imgdb.cn/item/6283521009475431299ccc20.png" />

@@ -126,7 +126,7 @@ const config = {
         },
 	  {
           url:"http://prj.nosou.work:8998/",
-          name:"项目信息记录🔥",
+          name:"项目信息记录&题库",
           desc:"项目信息"
         },
 	  {
@@ -141,13 +141,13 @@ const config = {
         },
     {
           url:"https://find-car-admin.keytop.cn/fcfront/login",
-          name:"3D自研地图管理🔥",
+          name:"3D自研地图管理",
           desc:"自研地图管理"
         },
         {
-          url:"https://sites.weizhen.xyz",
-          name:"虚位以待",
-          desc:"虚位以待"
+          url:"https://image.weizhen.xyz",
+          name:"项目案例图片",
+          desc:"案例图片"
         },
         {
           url:"https://sites.weizhen.xyz",
@@ -257,6 +257,11 @@ const config = {
           name:"Twitter",
           desc:"推特"
         },
+        {
+          url:"https://www.twitch.tv/",
+          name:"Twitch",
+          desc:"老鼠台"
+        },
           {
           url:"https://www.instagram.com/",
           name:"Instagram",
@@ -271,12 +276,8 @@ const config = {
           url:"https://github.com/",
           name:"GitHub",
           desc:"代码托管平台"
-        },
-         {
-          url:"https://www.cloudflare.com/",
-          name:"Cloudflare",
-          desc:"构建更好的互联网"
         }
+
       ]
     }
   ]

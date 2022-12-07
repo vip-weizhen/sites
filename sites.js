@@ -140,6 +140,11 @@ const config = {
           desc:"维修替换料号表(实时更新)"
         },
     {
+          url:"https://kp-open.keytop.cn/api/index.html",
+          name:"统一接口管理平台",
+          desc:"接口管理平台"
+        },
+    {
           url:"https://find-car-admin.keytop.cn/fcfront/login",
           name:"3D自研地图管理",
           desc:"自研地图管理"
@@ -148,11 +153,6 @@ const config = {
           url:"https://image.weizhen.xyz",
           name:"项目案例图片",
           desc:"案例图片"
-        },
-        {
-          url:"https://sites.weizhen.xyz",
-          name:"虚位以待",
-          desc:"虚位以待"
         },
         {
           url:"https://sites.weizhen.xyz",
@@ -260,7 +260,7 @@ const config = {
         {
           url:"https://www.twitch.tv/",
           name:"Twitch",
-          desc:"老鼠台"
+          desc:"推趣"
         },
           {
           url:"https://www.instagram.com/",

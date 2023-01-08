@@ -1,6 +1,3 @@
-/**
- *  自定义网站配置 
- */
 const config = {
   title: "Mr.wei-webserver",                 //write your website title
   subtitle: "Keytop-Technology", //write your website subtitle
@@ -9,8 +6,8 @@ const config = {
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use
     {
-      name:"F搜",
-      template:"https://fsoufsou.com/search?q=$s"
+      name:"搜头条",
+      template:"https://so.toutiao.com/search?dvpf=pc&source=input&keyword=$s"
     },
       {
       name:"百 度",
@@ -336,7 +333,7 @@ function renderHeader(){
       return item(link.template,link.name);
     }
   }).join(""))
-  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://static.hetaousercontent.com/static/assets/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
+  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://so.toutiao.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
   return el('header',[],el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],(config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + el('div',['id="title"','class="ui text container"'],title + (config.search ? input + menu :"") + `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : ''}`)))
 }
 
@@ -384,273 +381,7 @@ function renderHTML(index,seller) {
       <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.js"></script>
       <link rel="shortcut icon" href="https://pic.imgdb.cn/item/6283521009475431299ccc20.png" />
       <link rel="bookmark" href="https://pic.imgdb.cn/item/6283521009475431299ccc20.png" type="image/x-icon"　/>
-      <style>
-    .ct2 .mn {
-        width: 770px;
-    }
-
-    .ct2 .sd {
-        width: 218px;
-    }
-</style>
-<div id="wp" class="wp">
-    <div class="xnkl">
-        <div class="deng-box2">
-            <div class="deng">
-                <div class="xian"></div>
-                <div class="deng-a">
-                    <div class="deng-b">
-                        <div class="deng-t">年</div>
-                    </div>
-                </div>
-                <div class="shui shui-a">
-                    <div class="shui-c"></div>
-                    <div class="shui-b"></div>
-                </div>
-            </div>
-        </div>
-        <div class="deng-box3">
-            <div class="deng">
-                <div class="xian"></div>
-                <div class="deng-a">
-                    <div class="deng-b">
-                        <div class="deng-t">新</div>
-                    </div>
-                </div>
-                <div class="shui shui-a">
-                    <div class="shui-c"></div>
-                    <div class="shui-b"></div>
-                </div>
-            </div>
-        </div>
-        <div class="deng-box1">
-            <div class="deng">
-                <div class="xian"></div>
-                <div class="deng-a">
-                    <div class="deng-b">
-                        <div class="deng-t">乐</div>
-                    </div>
-                </div>
-                <div class="shui shui-a">
-                    <div class="shui-c"></div>
-                    <div class="shui-b"></div>
-                </div>
-            </div>
-        </div>
-        <div class="deng-box">
-            <div class="deng">
-                <div class="xian"></div>
-                <div class="deng-a">
-                    <div class="deng-b">
-                        <div class="deng-t">快</div>
-                    </div>
-                </div>
-                <div class="shui shui-a">
-                    <div class="shui-c"></div>
-                    <div class="shui-b"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <style type="text/css">
-        @media screen and (max-width: 768px) {
-            .xnkl {
-                display: none;
-            }
-        }
-
-        .deng-box {
-            position: fixed;
-            top: 40px;
-            right: 150px;
-            z-index: 9999;
-            pointer-events: none;
-        }
-
-        .deng-box1 {
-            position: fixed;
-            top: 30px;
-            right: 10px;
-            z-index: 9999;
-            pointer-events: none
-        }
-
-        .deng-box2 {
-            position: fixed;
-            top: 40px;
-            left: 150px;
-            z-index: 9999;
-            pointer-events: none
-        }
-
-        .deng-box3 {
-            position: fixed;
-            top: 30px;
-            left: 10px;
-            z-index: 9999;
-            pointer-events: none
-        }
-
-        .deng-box1 .deng,
-        .deng-box3 .deng {
-            position: relative;
-            width: 120px;
-            height: 90px;
-            margin: 50px;
-            background: #d8000f;
-            background: rgba(216, 0, 15, .8);
-            border-radius: 50% 50%;
-            -webkit-transform-origin: 50% -100px;
-            -webkit-animation: swing 5s infinite ease-in-out;
-            box-shadow: -5px 5px 30px 4px #fc903d
-        }
-
-        .deng {
-            position: relative;
-            width: 120px;
-            height: 90px;
-            margin: 50px;
-            background: #d8000f;
-            background: rgba(216, 0, 15, .8);
-            border-radius: 50% 50%;
-            -webkit-transform-origin: 50% -100px;
-            -webkit-animation: swing 3s infinite ease-in-out;
-            box-shadow: -5px 5px 50px 4px #fa6c00
-        }
-
-        .deng-a {
-            width: 100px;
-            height: 90px;
-            background: #d8000f;
-            background: rgba(216, 0, 15, .1);
-            margin: 12px 8px 8px 8px;
-            border-radius: 50% 50%;
-            border: 2px solid #dc8f03
-        }
-
-        .deng-b {
-            width: 45px;
-            height: 90px;
-            background: #d8000f;
-            background: rgba(216, 0, 15, .1);
-            margin: -4px 8px 8px 26px;
-            border-radius: 50% 50%;
-            border: 2px solid #dc8f03
-        }
-
-        .xian {
-            position: absolute;
-            top: -20px;
-            left: 60px;
-            width: 2px;
-            height: 20px;
-            background: #dc8f03
-        }
-
-        .shui-a {
-            position: relative;
-            width: 5px;
-            height: 20px;
-            margin: -5px 0 0 59px;
-            -webkit-animation: swing 4s infinite ease-in-out;
-            -webkit-transform-origin: 50% -45px;
-            background: orange;
-            border-radius: 0 0 5px 5px
-        }
-
-        .shui-b {
-            position: absolute;
-            top: 14px;
-            left: -2px;
-            width: 10px;
-            height: 10px;
-            background: #dc8f03;
-            border-radius: 50%
-        }
-
-        .shui-c {
-            position: absolute;
-            top: 18px;
-            left: -2px;
-            width: 10px;
-            height: 35px;
-            background: orange;
-            border-radius: 0 0 0 5px
-        }
-
-        .deng:before {
-            position: absolute;
-            top: -7px;
-            left: 29px;
-            height: 12px;
-            width: 60px;
-            content: " ";
-            display: block;
-            z-index: 999;
-            border-radius: 5px 5px 0 0;
-            border: solid 1px #dc8f03;
-            background: orange;
-            background: linear-gradient(to right, #dc8f03, orange, #dc8f03, orange, #dc8f03)
-        }
-
-        .deng:after {
-            position: absolute;
-            bottom: -7px;
-            left: 10px;
-            height: 12px;
-            width: 60px;
-            content: " ";
-            display: block;
-            margin-left: 20px;
-            border-radius: 0 0 5px 5px;
-            border: solid 1px #dc8f03;
-            background: orange;
-            background: linear-gradient(to right, #dc8f03, orange, #dc8f03, orange, #dc8f03)
-        }
-
-        .deng-t {
-            font-family: 黑体, Arial, Lucida Grande, Tahoma, sans-serif;
-            font-size: 3.2rem;
-            color: #dc8f03;
-            font-weight: 700;
-            line-height: 85px;
-            text-align: center
-        }
-
-        .night .deng-box,
-        .night .deng-box1,
-        .night .deng-t {
-            background: 0 0 !important
-        }
-
-        @-moz-keyframes swing {
-            0% {
-                -moz-transform: rotate(-10deg)
-            }
-
-            50% {
-                -moz-transform: rotate(10deg)
-            }
-
-            100% {
-                -moz-transform: rotate(-10deg)
-            }
-        }
-
-        @-webkit-keyframes swing {
-            0% {
-                -webkit-transform: rotate(-10deg)
-            }
-
-            50% {
-                -webkit-transform: rotate(10deg)
-            }
-
-            100% {
-                -webkit-transform: rotate(-10deg)
-            }
-        }
-    </style>
+      
   </head>
   <body>
     ${index}
@@ -667,10 +398,10 @@ function renderHTML(index,seller) {
           url = url.replace(`+/\$s/+`,$('#searchinput').val());
           window.open(url);
       });
-      /* 鼠标聚焦时，回车事件 */
+     
       $("#searchinput").bind("keypress", function(){
           if (event.keyCode == 13){
-          // 触发需要调用的方法
+        
           $(".search").click();
           }
       });
@@ -678,6 +409,28 @@ function renderHTML(index,seller) {
           $('#seller').modal('show');
       });
     </script>
+        
+    
+    <script src="https://fastly.jsdelivr.net/gh/vip-weizhen/sites/mouse.js"></script>
+  
+    <div id="tp-weather-widget"></div>
+    <script>
+			(function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+			window.SeniverseWeatherWidget('show', {
+			flavor: "bubble",
+			location: "WX4FBXXFKE4F",
+			geolocation: true,
+			language: "zh-Hans",
+			unit: "c",
+			theme: "auto",
+			token: "ac1d036a-99f3-4f88-ae98-f795bb93a9f0",
+			hover: "disabled",
+			container: "tp-weather-widget"
+			})
+		</script> 
+
+
+
   </body>
 
   </html>`

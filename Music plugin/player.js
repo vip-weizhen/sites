@@ -42,7 +42,7 @@ var lzxPlayerInit = function () {
     var keyId = isTest ? testKey : $("#ilt").attr("key");
 
     if(!styleLoaded){
-        $("head").append('<link rel="stylesheet" type="text/css" href="' + webURL + '/player/css/player.css">');
+        $("head").append('<link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/vip-weizhen/sites/Music%20plugin/player.css">');
         $("head").append('<link href="https://libs.baidu.com/fontawesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">');
         lzxPlayerStyleLoaded = true;
     }

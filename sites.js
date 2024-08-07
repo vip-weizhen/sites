@@ -5,13 +5,13 @@ const config = {
   hitokoto: true,                     //use hitokoto or not
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use
-    {
-      name:"搜头条",
-      template:"https://so.toutiao.com/search?dvpf=pc&source=input&keyword=$s"
-    },
-      {
+   {
       name:"百 度",
       template:"https://www.baidu.com/s?wd=$s"
+    },
+    {
+      name:"必 应",
+      template:"https://cn.bing.com/search?q=$s"
     },
     {
       name:"谷 歌",
@@ -25,17 +25,13 @@ const config = {
       name:"高德地图",
       template:"https://ditu.amap.com/search?query=$s"
     },
-    {
-      name:"查快递",
-      template:"https://www.kuaidi100.com/?coname=toutiao&nu=$s"
-    },
       {
       name:"调试记录",
-      template:"http://118.31.171.185:7777/?name=$s"
+      template:"https://kt-ts.weizhen.xyz/?name=$s"
     },
       {
-      name:"售后维护",
-      template:"http://118.31.171.185:7099/?name=$s"
+      name:"维保查询",
+      template:"https://kt-wb.weizhen.xyz/?name=$s"
     }
   ],
   selling_ads: false,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
@@ -107,12 +103,12 @@ const config = {
           desc:"科拓BI系统"
         },
 		  {
-          url:"http://118.31.171.185:1234",
+          url:"http://tw-1.lcf.1l1.icu:48012",
           name:"文件传输服务",
           desc:"文件传输服务"
         },
 	   {
-          url:"https://kos.keytop.cn/dkqfront/pc.html#/Login?redirect=%2FIndex",
+          url:"https://kos.keytop.cn/dkqfront/pc.html#/Login",
           name:"商户助手PC版",
           desc:"商户助手PC版"
         },
@@ -128,8 +124,8 @@ const config = {
         },
 	  {
           url:"https://pan.weizhen.xyz",
-          name:"技术部数据中心",
-          desc:"Ketyop-NAS"
+          name:"网盘",
+          desc:"CloudNas"
         },
     {
           url:"https://doc.weixin.qq.com/txdoc/apply_page?k=AD4AmwcwAA4CDxHO4iAMgA4Ab3AKg#/login",
@@ -152,7 +148,7 @@ const config = {
           desc:"案例图片"
         },
         {
-          url:"",
+          url:"https://www.weizhen.xyz",
           name:"",
           desc:""
         }
@@ -163,6 +159,11 @@ const config = {
       name:"理想生活",
       icon:"coffee",
       list:[
+          {
+          url:"https://www.douyin.com/",
+          name:"抖音",
+          desc:"记录美好生活"
+        },
          {
           url:"https://weibo.com/",
           name:"新浪微博",
@@ -197,11 +198,6 @@ const config = {
           url:"https://www.huya.com/",
           name:"虎牙直播",
           desc:"1秒即开看直播"
-        },
-        {
-          url:"https://egame.qq.com/",
-          name:"企鹅电竞",
-          desc:"腾讯旗下电竞平台"
         }
       ]
     },
@@ -302,13 +298,13 @@ function getFavicon(url){
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url.split('//')[1];
    //return "https://icon.occ.hk/get.php?url=" + url;
    //return  url + '/favicon.ico'
-   return  "https://fastly.jsdelivr.net/gh/vip-weizhen/CDN/zhifeiji.png";
+   return  "https://obs.weizhen.xyz/sites-feiji.png";
 
   }else{
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
   //return "https://icon.occ.hk/get.php?url=http://" + url;
   //return  url + '/favicon.ico'
-   return  "https://fastly.jsdelivr.net/gh/vip-weizhen/CDN/zhifeiji.png";
+   return  "https://obs.weizhen.xyz/sites-feiji.png";
 
   } 
 }
@@ -334,7 +330,7 @@ function renderHeader(){
       return item(link.template,link.name);
     }
   }).join(""))
-  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://so.toutiao.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
+  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.baidu.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
   return el('header',[],el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],(config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + el('div',['id="title"','class="ui text container"'],title + (config.search ? input + menu :"") + `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : ''}`)))
 }
 
@@ -377,11 +373,11 @@ function renderHTML(index,seller) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>${config.title} - ${config.subtitle}</title>
       <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
-      <link href="https://fastly.jsdelivr.net/gh/vip-weizhen/sites/style.min.css" rel="stylesheet">
+      <link href="https://obs.weizhen.xyz/sites.style.min.css" rel="stylesheet">
       <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.js"></script>
-      <link rel="shortcut icon" href="https://fastly.jsdelivr.net/gh/vip-weizhen/CDN/sites.png" />
-      <link rel="bookmark" href="https://fastly.jsdelivr.net/gh/vip-weizhen/CDN/sites.png" type="image/x-icon"　/>
+      <link rel="shortcut icon" href="https://obs.weizhen.xyz/sites-logo.png" />
+      <link rel="bookmark" href="https://obs.weizhen.xyz/sites-logo.png" type="image/x-icon"　/>
       
   </head>
   <body>
@@ -411,7 +407,7 @@ function renderHTML(index,seller) {
       });
     </script>
     
-    <script src="https://fastly.jsdelivr.net/gh/vip-weizhen/sites/mouse-1.js"></script>
+    <script src="https://obs.weizhen.xyz/sites.mouse.js"></script>
     
   </body>
 

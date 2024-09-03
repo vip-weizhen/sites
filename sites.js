@@ -25,6 +25,10 @@ const config = {
       name:"高德地图",
       template:"https://ditu.amap.com/search?query=$s"
     },
+    {
+      name:"快递查询",
+      template:"https://www.kuaidi100.com/?coname=toutiao&nu=$s"
+    },
       {
       name:"调试记录",
       template:"https://kt-ts.weizhen.xyz/?name=$s"
@@ -103,7 +107,7 @@ const config = {
           desc:"科拓BI系统"
         },
 		  {
-          url:"http://tw-1.lcf.1l1.icu:48012",
+          url:"https://file.weizhen.xyz",
           name:"文件传输服务",
           desc:"文件传输服务"
         },
@@ -117,21 +121,6 @@ const config = {
           name:"科拓永策平台",
           desc:"科拓永策平台"
         },
-	  {
-          url:"http://prj.nosou.work:8998/",
-          name:"项目信息记录&题库",
-          desc:"项目信息"
-        },
-	  {
-          url:"https://pan.weizhen.xyz",
-          name:"网盘",
-          desc:"CloudNas"
-        },
-    {
-          url:"https://doc.weixin.qq.com/txdoc/apply_page?k=AD4AmwcwAA4CDxHO4iAMgA4Ab3AKg#/login",
-          name:"维修替换料号表",
-          desc:"维修替换料号表(实时更新)"
-        },
     {
           url:"https://kp-open.keytop.cn/api/index.html",
           name:"统一接口管理平台",
@@ -142,16 +131,12 @@ const config = {
           name:"大圣充电平台",
           desc:"大圣充电"
         },
-        {
-          url:"https://image.weizhen.xyz",
-          name:"项目案例图片",
-          desc:"案例图片"
-        },
-        {
-          url:"https://www.weizhen.xyz",
-          name:"",
-          desc:""
+    {
+          url:"https://doc.weixin.qq.com/txdoc/apply_page?k=AD4AmwcwAA4CDxHO4iAMgA4Ab3AKg#/login",
+          name:"维修替换料号表",
+          desc:"维修替换料号表(实时更新)"
         }
+
 
       ]
     },

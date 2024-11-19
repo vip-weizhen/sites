@@ -278,6 +278,7 @@ addEventListener('fetch', event => {
 /*通过分析链接 实时获取favicon
 * @url 需要分析的Url地址
 */
+
 function getFavicon(url){
   if(url.match(/https{0,1}:\/\//)){
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url.split('//')[1];
@@ -294,6 +295,13 @@ function getFavicon(url){
   } 
 }
 
+/*
+function getFavicon(url) {
+  const domain = url.replace(/^https?:\/\//, '').split('/')[0];
+  return `https://icons.duckduckgo.com/ip3/${domain}.ico`;
+}
+
+*/
 /** Render Functions
  *  渲染模块函数
  */
@@ -366,6 +374,7 @@ function renderHTML(index,seller) {
       
   </head>
   <body>
+
     ${index}
     ${config.selling_ads ? seller : ''}
     <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
@@ -391,7 +400,9 @@ function renderHTML(index,seller) {
           $('#seller').modal('show');
       });
     </script>
-    
+   
+
+
     <script src="https://obs.weizhen.xyz/sites.mouse.js"></script>
     
   </body>

@@ -26,15 +26,19 @@ const config = {
       template:"https://ditu.amap.com/search?query=$s"
     },
     {
-      name:"快递查询",
+      name:"快递",
       template:"https://www.kuaidi100.com/?coname=toutiao&nu=$s"
     },
+    {
+      name:"影视",
+      template:"https://video.weizhen.xyz/s=$s"
+    },
       {
-      name:"调试记录",
+      name:"调试",
       template:"https://kt-ts.weizhen.xyz/?name=$s"
     },
       {
-      name:"维保查询",
+      name:"维保",
       template:"https://kt-wb.weizhen.xyz/?name=$s"
     }
   ],
@@ -62,7 +66,7 @@ const config = {
           desc:"专业、安全的企业邮箱服务"
         },
         {
-          url:"http://console608.keytop.cn:51320/console/login.jsp;jsessionid=A67B361AA39302D78FD7C39C3D325370",
+          url:"http://console608.keytop.cn:51320/console/wxcorp_login",
           name:"速停车",
           desc:"速停车后台管理"
         },
@@ -311,21 +315,6 @@ function renderIndex(){
   return renderHeader() + renderMain() + footer;
 }
 
-function renderHeader(){
-  const item = (template,name) => el('a',['class="item"',`data-url="${template}"`],name);
-
-  var nav = el('div',['class="ui large secondary inverted menu"'],el('div',['class="item"'],el('p',['id="hitokoto"'],'条条大路通罗马')))
-  var title = el('h1',['class="ui inverted header"'],el('i',[`class="${config.logo_icon} icon"`],"") + el('div',['class="content"'],config.title + el('div',['class="sub header"'],config.subtitle)));
-  var menu = el('div',['id="sengine"','class="ui bottom attached tabular inverted secondary menu"'],el('div',['class="header item"'],'&nbsp;') + config.search_engine.map((link,key) =>{
-    if(key == 0){
-      return el('a',['class="active item"',`data-url="${link.template}"`],link.name);
-    }else{
-      return item(link.template,link.name);
-    }
-  }).join(""))
-  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.baidu.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
-  return el('header',[],el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],(config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + el('div',['id="title"','class="ui text container"'],title + (config.search ? input + menu :"") + `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : ''}`)))
-}
 
 function renderMain() {
   var main = config.lists.map((item) => {
@@ -357,6 +346,52 @@ function renderSeller() {
   return el('div',['id="seller"','class="ui basic modal"'],title + content + action);
 }
 
+// 以下是已修改的 renderHeader() 函数，使视频背景支持多个视频随机播放
+function renderHeader(){
+  const item = (template,name) => el('a',['class="item"',`data-url="${template}"`],name);
+
+  // 多个视频地址数组
+  const videos = [
+    "https://s1.xiaomiev.com/activity-outer-assets/0328/images/Ultra_U/pc/ultra_2_1.mp4",
+    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
+    "https://lf9-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/video/earth_v6.mp4",
+    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/%E6%97%97%E5%AD%90%E8%BE%93%E5%87%BA.mp4"
+  ];
+  const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+
+  var nav = el('div',['class="ui large secondary inverted menu"'],el('div',['class="item"'],el('p',['id="hitokoto"'],'条条大路通罗马')))
+  var title = el('h1',['class="ui inverted header"'],el('i',[`class="${config.logo_icon} icon"`],"") + el('div',['class="content"'],config.title + el('div',['class="sub header"'],config.subtitle)));
+  var menu = el('div',['id="sengine"','class="ui bottom attached tabular inverted secondary menu"'],el('div',['class="header item"'],'&nbsp;') + config.search_engine.map((link,key) =>{
+    if(key == 0){
+      return el('a',['class="active item"',`data-url="${link.template}"`],link.name);
+    }else{
+      return item(link.template,link.name);
+    }
+  }).join(""))
+
+  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],
+    el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.baidu.com/favicon.ico"'],"")) +
+    el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") +
+    el('i',['class="inverted circular search link icon"'],""));
+
+  return el('header',[],
+    el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],
+      el('div',['class="video-background"'],
+        el('video',['autoplay','muted','loop','id="myVideo"'],
+          el('source',[`src="${randomVideo}"`],'')
+        )
+      ) +
+      (config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + 
+      el('div',['id="title"','class="ui text container"'],
+        title + 
+        (config.search ? input + menu : "") + 
+        `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : ''}`
+      )
+    )
+  );
+}
+
+
 function renderHTML(index,seller) {
   return `<!DOCTYPE html>
   <html lang="en">
@@ -371,6 +406,54 @@ function renderHTML(index,seller) {
       <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.js"></script>
       <link rel="shortcut icon" href="https://obs.weizhen.xyz/sites-logo.png" />
       <link rel="bookmark" href="https://obs.weizhen.xyz/sites-logo.png" type="image/x-icon"　/>
+      
+  </head>
+
+  `
+}
+
+function renderHTML(index,seller) {
+  return `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>${config.title} - ${config.subtitle}</title>
+      <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+      <link href="https://obs.weizhen.xyz/sites.style.min.css" rel="stylesheet">
+      <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.js"></script>
+      <link rel="shortcut icon" href="https://obs.weizhen.xyz/sites-logo.png" />
+      <link rel="bookmark" href="https://obs.weizhen.xyz/sites-logo.png" type="image/x-icon"　/>
+
+      <style>
+      .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+      
+      #myVideo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+      }
+      
+      #head {
+        background: rgba(0, 0, 0, 0) !important;
+        position: relative;
+      }
+    </style>
       
   </head>
   <body>
@@ -410,4 +493,3 @@ function renderHTML(index,seller) {
   </html>`
 
 }
-

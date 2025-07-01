@@ -326,7 +326,7 @@ function getFavicon(url){
 
 
 function renderIndex(){
-  const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/vip-weizhen/sites"','target="_blank"'],el('i',['class="github icon"'],"") + 'Mr.wei') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + '麻省理工学院执照')));
+  const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/vip-weizhen/sites"','target="_blank"'],el('i',['class="github icon"'],"") + 'Mr.wei') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + '麻省理工学院执照')+' Mail: vip.weizhen@gmail.com '));
   return renderHeader() + renderMain() + footer;
 }
 
@@ -367,10 +367,10 @@ function renderHeader(){
 
 
   const videos = [
-    "https://s1.xiaomiev.com/activity-outer-assets/0328/images/Ultra_U/pc/ultra_2_1.mp4",
-    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
-    "https://lf9-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/video/earth_v6.mp4",
-    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/%E6%97%97%E5%AD%90%E8%BE%93%E5%87%BA.mp4"
+    "https://obs.weizhen.xyz/bgv/ultra.mp4",
+    "https://obs.weizhen.xyz/bgv/flag.mp4",
+    "https://obs.weizhen.xyz/bgv/earth.mp4",
+    "https://obs.weizhen.xyz/bgv/Lake.mp4"
   ];
   const randomVideo = videos[Math.floor(Math.random() * videos.length)];
 

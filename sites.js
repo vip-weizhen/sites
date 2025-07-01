@@ -190,7 +190,7 @@ const config = {
         }
       ]
     },
-{
+    {
       name:"何以解忧",
       icon:"shopping cart",
       list:[
@@ -262,7 +262,34 @@ const config = {
         }
 
       ]
+    },
+    {
+      name:"工具集",
+      icon:"cogs",
+      list:[
+          {
+          url:"https://tools.weizhen.xyz",
+          name:"IT-Tools",
+          desc:"助力开发人员和IT工作者"
+        },
+        {
+          url:"https://tts.weizhen.xyz",
+          name:"文本转语音",
+          desc:"在线TTS转换工具"
+        },
+        {
+          url:"https://sub.weizhen.xyz/sub?token=e7a8244ea81ace268547f7cd66520350",
+          name:"FQ代理节点",
+          desc:"科学上网节点订阅链接"
+        },
+        {
+          url:"https://sub-api.weizhen.xyz",
+          name:"订阅转换",
+          desc:"在线订阅转换工具"
+        }
+      ]
     }
+
   ]
 }
 const el = (tag, attrs, content) => `<${tag} ${attrs.join(" ")}>${content}</${tag}>`;
@@ -279,9 +306,7 @@ addEventListener('fetch', event => {
   return event.respondWith(handleRequest(event.request))
 })
 
-/*通过分析链接 实时获取favicon
-* @url 需要分析的Url地址
-*/
+
 
 function getFavicon(url){
   if(url.match(/https{0,1}:\/\//)){
@@ -299,16 +324,6 @@ function getFavicon(url){
   } 
 }
 
-/*
-function getFavicon(url) {
-  const domain = url.replace(/^https?:\/\//, '').split('/')[0];
-  return `https://icons.duckduckgo.com/ip3/${domain}.ico`;
-}
-
-*/
-/** Render Functions
- *  渲染模块函数
- */
 
 function renderIndex(){
   const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/vip-weizhen/sites"','target="_blank"'],el('i',['class="github icon"'],"") + 'Mr.wei') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + '麻省理工学院执照')));
@@ -346,11 +361,11 @@ function renderSeller() {
   return el('div',['id="seller"','class="ui basic modal"'],title + content + action);
 }
 
-// 以下是已修改的 renderHeader() 函数，使视频背景支持多个视频随机播放
+
 function renderHeader(){
   const item = (template,name) => el('a',['class="item"',`data-url="${template}"`],name);
 
-  // 多个视频地址数组
+
   const videos = [
     "https://s1.xiaomiev.com/activity-outer-assets/0328/images/Ultra_U/pc/ultra_2_1.mp4",
     "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",

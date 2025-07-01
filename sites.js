@@ -407,25 +407,6 @@ function renderHeader(){
 }
 
 
-function renderHTML(index,seller) {
-  return `<!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>${config.title} - ${config.subtitle}</title>
-      <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
-      <link href="https://obs.weizhen.xyz/sites.style.min.css" rel="stylesheet">
-      <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.4.1/jquery.min.js"></script>
-      <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.js"></script>
-      <link rel="shortcut icon" href="https://obs.weizhen.xyz/sites-logo.png" />
-      <link rel="bookmark" href="https://obs.weizhen.xyz/sites-logo.png" type="image/x-icon"　/>
-      
-  </head>
-
-  `
-}
 
 function renderHTML(index,seller) {
   return `<!DOCTYPE html>

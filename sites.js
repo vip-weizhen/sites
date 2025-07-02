@@ -1,10 +1,10 @@
 const config = {
-  title: "Mr.wei-webserver",                 //write your website title
-  subtitle: "Keytop-Technology", //write your website subtitle
-  logo_icon: "sitemap",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
-  hitokoto: true,                     //use hitokoto or not
-  search:true,                        //enable search function
-  search_engine:[                     //choose search engine which you use
+  title: "Mr.wei-webserver",
+  subtitle: "Keytop-Technology",
+  logo_icon: "sitemap",               //https://semantic-ui.com/elements/icon.html
+  hitokoto: true,
+  search:true,
+  search_engine:[
    {
       name:"百 度",
       template:"https://www.baidu.com/s?wd=$s"
@@ -42,19 +42,21 @@ const config = {
       template:"https://kt-wb.weizhen.xyz/?name=$s"
     }
   ],
-  selling_ads: false,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
+  selling_ads: false,
   sell_info:{
     domain:"example.com",
-    price:500,                        //domain price
-    mon_unit:"yen sign",              //monetary unit 
-    contact:[                         //how to contact you
+    price:500,
+    mon_unit:"yen sign",
+    contact:[
       {
-        type:"envelope",               //contact type ("weixin","qq","telegram plane","envelope" or "phone")
+        type:"envelope",
         content:"info@example.com"
       }
     ]                        
   },
-  lists: [                            //Url list
+
+
+  lists: [
    
 	{
       name:"办公常用",
@@ -310,16 +312,10 @@ addEventListener('fetch', event => {
 
 function getFavicon(url){
   if(url.match(/https{0,1}:\/\//)){
-    //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url.split('//')[1];
-   //return "https://icon.occ.hk/get.php?url=" + url;
-   //return  url + '/favicon.ico'
-   return  "https://obs.weizhen.xyz/sites-feiji.png";
+  return  "https://obs.weizhen.xyz/Favicon.png";
 
   }else{
-    //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
-  //return "https://icon.occ.hk/get.php?url=http://" + url;
-  //return  url + '/favicon.ico'
-   return  "https://obs.weizhen.xyz/sites-feiji.png";
+  return  "https://obs.weizhen.xyz/Favicon.png";
 
   } 
 }

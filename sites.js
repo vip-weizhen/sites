@@ -358,50 +358,53 @@ function renderSeller() {
 }
 
 
-function renderHeader(){
-  const item = (template,name) => el('a',['class="item"',`data-url="${template}"`],name);
+function renderHeader() {
+  const item = (template, name) => el('a', ['class="item"', `data-url="${template}"`], name);
 
-
-  const videos = [
-"https://s1.xiaomiev.com/activity-outer-assets/0328/images/Ultra_U/pc/ultra_2_1.mp4",
-"https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
-"https://lf9-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/video/earth_v6.mp4",
-"https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/%E6%97%97%E5%AD%90%E8%BE%93%E5%87%BA.mp4"
+  const mediaList = [
+    "https://s1.xiaomiev.com/activity-outer-assets/0328/images/Ultra_U/pc/ultra_2_1.mp4",
+    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
+    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/%E6%97%97%E5%AD%90%E8%BE%93%E5%87%BA.mp4",
+    "https://framerusercontent.com/assets/O4UXlHFiNa7DL8Ebk8qnhGDchM.mp4",
+    "https://framerusercontent.com/assets/trVPqAGYCH86p8oQDGYLKQnMQ.mp4",
+    "https://picsum.photos/id/1018/1920/1080",
+    "https://picsum.photos/id/1015/1920/1080",
+    "https://picsum.photos/id/1025/1920/1080"
   ];
-  const randomVideo = videos[Math.floor(Math.random() * videos.length)];
 
-  var nav = el('div',['class="ui large secondary inverted menu"'],el('div',['class="item"'],el('p',['id="hitokoto"'],'条条大路通罗马')))
-  var title = el('h1',['class="ui inverted header"'],el('i',[`class="${config.logo_icon} icon"`],"") + el('div',['class="content"'],config.title + el('div',['class="sub header"'],config.subtitle)));
-  var menu = el('div',['id="sengine"','class="ui bottom attached tabular inverted secondary menu"'],el('div',['class="header item"'],'&nbsp;') + config.search_engine.map((link,key) =>{
-    if(key == 0){
-      return el('a',['class="active item"',`data-url="${link.template}"`],link.name);
-    }else{
-      return item(link.template,link.name);
-    }
-  }).join(""))
+  const randomMedia = mediaList[Math.floor(Math.random() * mediaList.length)];
+  const isVideo = randomMedia.endsWith(".mp4");
 
-  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],
-    el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.baidu.com/favicon.ico"'],"")) +
-    el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") +
-    el('i',['class="inverted circular search link icon"'],""));
+  const backgroundHtml = isVideo
+    ? `<video autoplay muted loop id="myVideo"><source src="${randomMedia}" type="video/mp4"></video>`
+    : `<img id="myVideo" src="${randomMedia}" style="width:100%;height:100%;object-fit:cover;" />`;
 
-  return el('header',[],
-    el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],
-      el('div',['class="video-background"'],
-        el('video',['autoplay','muted','loop','id="myVideo"'],
-          el('source',[`src="${randomVideo}"`],'')
-        )
-      ) +
-      (config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + 
-      el('div',['id="title"','class="ui text container"'],
-        title + 
-        (config.search ? input + menu : "") + 
+  var nav = el('div', ['class="ui large secondary inverted menu"'], el('div', ['class="item"'], el('p', ['id="hitokoto"'], '条条大路通罗马')));
+  var title = el('h1', ['class="ui inverted header"'], el('i', [`class="${config.logo_icon} icon"`], "") + el('div', ['class="content"'], config.title + el('div', ['class="sub header"'], config.subtitle)));
+
+  var menu = el('div', ['id="sengine"', 'class="ui bottom attached tabular inverted secondary menu"'], el('div', ['class="header item"'], '&nbsp;') + config.search_engine.map((link, key) => {
+    return key === 0
+      ? el('a', ['class="active item"', `data-url="${link.template}"`], link.name)
+      : item(link.template, link.name);
+  }).join(""));
+
+  var input = el('div', ['class="ui left corner labeled right icon fluid large input"'],
+    el('div', ['class="ui left corner label"'], el('img', ['id="search-fav"', 'class="left floated avatar ui image"', 'src="https://www.baidu.com/favicon.ico"'], "")) +
+    el('input', ['id="searchinput"', 'type="search"', 'placeholder="搜索你想要知道的……"', 'autocomplete="off"'], "") +
+    el('i', ['class="inverted circular search link icon"'], ""));
+
+  return el('header', [],
+    el('div', ['id="head"', 'class="ui inverted vertical masthead center aligned segment"'],
+      el('div', ['class="video-background"'], backgroundHtml) +
+      (config.hitokoto ? el('div', ['id="nav"', 'class="ui container"'], nav) : "") +
+      el('div', ['id="title"', 'class="ui text container"'],
+        title +
+        (config.search ? input + menu : "") +
         `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : ''}`
       )
     )
   );
 }
-
 
 
 function renderHTML(index,seller) {

@@ -365,11 +365,9 @@ function renderHeader() {
     "https://s1.xiaomiev.com/activity-outer-assets/0328/images/Ultra_U/pc/ultra_2_1.mp4",
     "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
     "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/%E6%97%97%E5%AD%90%E8%BE%93%E5%87%BA.mp4",
-    "https://framerusercontent.com/assets/O4UXlHFiNa7DL8Ebk8qnhGDchM.mp4",
-    "https://framerusercontent.com/assets/trVPqAGYCH86p8oQDGYLKQnMQ.mp4",
-    "https://picsum.photos/id/1018/1920/1080",
-    "https://picsum.photos/id/1015/1920/1080",
-    "https://picsum.photos/id/1025/1920/1080"
+    // "https://picsum.photos/id/1018/1920/1080",
+    // "https://picsum.photos/id/1015/1920/1080",
+    // "https://picsum.photos/id/1025/1920/1080"
   ];
 
   const randomMedia = mediaList[Math.floor(Math.random() * mediaList.length)];
@@ -415,10 +413,10 @@ function renderHTML(index,seller) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>${config.title} - ${config.subtitle}</title>
-      <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
       <link href="https://obs.weizhen.xyz/sites.style.min.css" rel="stylesheet">
-      <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.4.1/jquery.min.js"></script>
-      <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/semantic-ui/2.4.1/semantic.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
       <link rel="shortcut icon" href="https://obs.weizhen.xyz/sites-logo.png" />
       <link rel="bookmark" href="https://obs.weizhen.xyz/sites-logo.png" type="image/x-icon"　/>
 

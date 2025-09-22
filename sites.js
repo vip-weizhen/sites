@@ -141,8 +141,27 @@ const config = {
           url:"https://doc.weixin.qq.com/txdoc/apply_page?k=AD4AmwcwAA4CDxHO4iAMgA4Ab3AKg#/login",
           name:"维修替换料号表",
           desc:"维修替换料号表(实时更新)"
+        },
+        {
+          url:"https://yongce-smwy.keytop.cn/unityp/login",
+          name:"科拓永策Pro平台",
+          desc:"科拓永策Pro平台"
+        },
+        {
+          url:"https://sites.weizhen.xyz",
+          name:"",
+          desc:""
+        },
+        {
+          url:"https://sites.weizhen.xyz",
+          name:"",
+          desc:""
+        },
+        {
+          url:"https://sites.weizhen.xyz",
+          name:"",
+          desc:""
         }
-
 
       ]
     },
@@ -362,12 +381,11 @@ function renderHeader() {
   const item = (template, name) => el('a', ['class="item"', `data-url="${template}"`], name);
 
   const mediaList = [
-    "https://s1.xiaomiev.com/activity-outer-assets/0328/images/Ultra_U/pc/ultra_2_1.mp4",
-    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
+    // "https://s1.xiaomiev.com/activity-outer-assets/0328/images/Ultra_U/pc/ultra_2_1.mp4",
+    // "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
     "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/%E6%97%97%E5%AD%90%E8%BE%93%E5%87%BA.mp4",
-    // "https://picsum.photos/id/1018/1920/1080",
-    // "https://picsum.photos/id/1015/1920/1080",
-    // "https://picsum.photos/id/1025/1920/1080"
+     
+
   ];
 
   const randomMedia = mediaList[Math.floor(Math.random() * mediaList.length)];

@@ -148,9 +148,9 @@ const config = {
           desc:"科拓永策Pro平台"
         },
         {
-          url:"https://sites.weizhen.xyz",
-          name:"",
-          desc:""
+          url:"https://pay-1208.weizhen.xyz",
+          name:"测试车场查询缴费",
+          desc:"1208测试车场查询缴费"
         },
         {
           url:"https://sites.weizhen.xyz",
@@ -307,7 +307,28 @@ const config = {
           url:"https://sub-api.weizhen.xyz",
           name:"订阅转换",
           desc:"在线订阅转换工具"
+        },
+        {
+          url:"https://tvhelper.weizhen.xyz",
+          name:"IPTV",
+          desc:"IPTV直播源"
+        },
+        {
+          url:"https://tvbox.weizhen.xyz",
+          name:"TVBOX",
+          desc:"TVBOX点播源"
+        },
+        {
+          url:"https://url.weizhen.xyz",
+          name:"网址缩短",
+          desc:"短链生成器"
+        },
+        {
+          url:"https://js.weizhen.xyz",
+          name:"镜像加速",
+          desc:"GitHub Docker加速"
         }
+
       ]
     }
 
@@ -381,10 +402,10 @@ function renderHeader() {
   const item = (template, name) => el('a', ['class="item"', `data-url="${template}"`], name);
 
   const mediaList = [
-    // "https://s1.xiaomiev.com/activity-outer-assets/0328/images/Ultra_U/pc/ultra_2_1.mp4",
-    // "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
-    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/%E6%97%97%E5%AD%90%E8%BE%93%E5%87%BA.mp4",
-     
+    "https://lf9-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/video/earth_v6.mp4",
+    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
+    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/%E6%97%97%E5%AD%90%E8%BE%93%E5%87%BA.mp4"
+ 
 
   ];
 

@@ -353,6 +353,7 @@ addEventListener('fetch', event => {
 function getFavicon(url){
   if(url.match(/https{0,1}:\/\//)){
   return  "https://obs.weizhen.xyz/Favicon.png";
+  
 
   }else{
   return  "https://obs.weizhen.xyz/Favicon.png";
@@ -456,8 +457,8 @@ function renderHTML(index,seller) {
       <link href="https://obs.weizhen.xyz/sites.style.min.css" rel="stylesheet">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-      <link rel="shortcut icon" href="https://obs.weizhen.xyz/sites-logo.png" />
-      <link rel="bookmark" href="https://obs.weizhen.xyz/sites-logo.png" type="image/x-icon"　/>
+      <link rel="shortcut icon" href="https://obs.weizhen.xyz/sites-ico.png" />
+      <link rel="bookmark" href="https://obs.weizhen.xyz/sites-ico.png" type="image/x-icon"　/>
 
       <style>
       .video-background {
@@ -486,6 +487,8 @@ function renderHTML(index,seller) {
         position: relative;
       }
     </style>
+
+
       
   </head>
   <body>

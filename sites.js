@@ -148,6 +148,11 @@ const config = {
           desc:"科拓永策Pro平台"
         },
         {
+          url:"https://find-car-admin.keytop.cn/unityp/login",
+          name:"反向寻车引导",
+          desc:"反向寻车引导管理平台"
+        },
+        {
           url:"https://pay-1208.weizhen.xyz",
           name:"测试车场查询缴费",
           desc:"1208测试车场查询缴费"
@@ -156,13 +161,34 @@ const config = {
           url:"https://sites.weizhen.xyz",
           name:"",
           desc:""
-        },
-        {
-          url:"https://sites.weizhen.xyz",
-          name:"",
-          desc:""
         }
 
+      ]
+    },
+    {
+      name:"人工智能",
+      icon:"comment alternate",
+      list:[
+          {
+          url:"https://chat.deepseek.com",
+          name:"DeepSeek",
+          desc:"探索未至之境"
+        },
+        {
+          url:"https://www.doubao.com",
+          name:"豆包",
+          desc:"你好，我是豆包"
+        },
+        {
+          url:"https://chatgpt.com",
+          name:"ChatGPT",
+          desc:"有什么可以帮忙的？"
+        },
+        {
+          url:"https://gemini.google.com",
+          name:"Gemini          ",
+          desc:"你好！"
+        }
       ]
     },
     {
@@ -231,9 +257,29 @@ const config = {
           desc:"多快好省,购物上京东！"
         },
         {
-          url:"https://www.amazon.cn/",
+          url:"https://www.amazon.com",
           name:"亚马逊",
           desc:"给你更大的世界"
+        },
+        {
+          url:"https://www.1688.com",
+          name:"阿里1688",
+          desc:"全球领先的采购批发平台"
+        },
+        {
+          url:"https://www.goofish.com",
+          name:"闲鱼",
+          desc:"闲不住?上闲鱼!"
+        },
+        {
+          url:"https://www.suning.com",
+          name:"苏宁易购",
+          desc:"换新到苏宁 省钱更省心!"
+        },
+        {
+          url:"https://www.walmart.com",
+          name:"沃尔玛",
+          desc:"让生活更美好"
         }
       ]
     },
@@ -405,8 +451,13 @@ function renderHeader() {
   const mediaList = [
     "https://lf9-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/video/earth_v6.mp4",
     "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
-    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/%E6%97%97%E5%AD%90%E8%BE%93%E5%87%BA.mp4"
- 
+    "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/%E6%97%97%E5%AD%90%E8%BE%93%E5%87%BA.mp4",
+    "https://obs.weizhen.xyz/bgv/lizi.mp4",
+    "https://obs.weizhen.xyz/bgv/cat.mp4",
+    "https://obs.weizhen.xyz/bgv/rain.mp4",
+    "https://obs.weizhen.xyz/bgv/rain-1.mp4",
+    "https://obs.weizhen.xyz/bgv/sea.mp4"
+
 
   ];
 

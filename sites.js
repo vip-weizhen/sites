@@ -5,10 +5,6 @@ const config = {
   hitokoto: true,
   search:true,
   search_engine:[
-   {
-      name:"百 度",
-      template:"https://www.baidu.com/s?wd=$s"
-    },
     {
       name:"必 应",
       template:"https://cn.bing.com/search?q=$s"
@@ -109,7 +105,7 @@ const config = {
         },
 		  {
           url:"https://dc.keytop.cn/app/manage/index.html",
-          name:"科拓BI系统",
+          name:"BI系统",
           desc:"科拓BI系统"
         },
 		  {
@@ -158,9 +154,9 @@ const config = {
           desc:"1208测试车场查询缴费"
         },
         {
-          url:"https://sites.weizhen.xyz",
-          name:"",
-          desc:""
+          url:"http://game.weizhen.xyz",
+          name:"🖐️🐟️🐟️🐟️",
+          desc:"🖐️🐟️🐟️🐟️"
         }
 
       ]
@@ -453,7 +449,9 @@ function renderHeader() {
     "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
     "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/%E6%97%97%E5%AD%90%E8%BE%93%E5%87%BA.mp4",
     "https://obs.weizhen.xyz/bgv/lizi.mp4",
-    "https://obs.weizhen.xyz/bgv/cat.mp4",
+    "https://obs.weizhen.xyz/bgv/lizi-1.mp4",
+    "https://obs.weizhen.xyz/bgv/shuye.mp4",
+    // 董霞说吓人 "https://obs.weizhen.xyz/bgv/cat.mp4",
     "https://obs.weizhen.xyz/bgv/rain.mp4",
     "https://obs.weizhen.xyz/bgv/rain-1.mp4",
     "https://obs.weizhen.xyz/bgv/sea.mp4"
@@ -478,7 +476,7 @@ function renderHeader() {
   }).join(""));
 
   var input = el('div', ['class="ui left corner labeled right icon fluid large input"'],
-    el('div', ['class="ui left corner label"'], el('img', ['id="search-fav"', 'class="left floated avatar ui image"', 'src="https://www.baidu.com/favicon.ico"'], "")) +
+    el('div', ['class="ui left corner label"'], el('img', ['id="search-fav"', 'class="left floated avatar ui image"', 'src="https://cn.bing.com/favicon.ico"'], "")) +
     el('input', ['id="searchinput"', 'type="search"', 'placeholder="搜索你想要知道的……"', 'autocomplete="off"'], "") +
     el('i', ['class="inverted circular search link icon"'], ""));
 
@@ -539,8 +537,7 @@ function renderHTML(index,seller) {
       }
     </style>
 
-
-      
+    
   </head>
   <body>
 

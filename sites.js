@@ -26,8 +26,13 @@ const config = {
       template:"https://www.kuaidi100.com/?coname=toutiao&nu=$s"
     },
     {
+      name:"音乐",
+      template:"https://www.pjmp3.com/search.php?keyword=$s"
+    },
+    
+    {
       name:"影视",
-      template:"https://video.weizhen.xyz/s=$s"
+      template:"https://v.ikanbot.com/search?q=$s"
     },
       {
       name:"调试",
@@ -54,7 +59,7 @@ const config = {
 
   lists: [
    
-	{
+  {
       name:"办公常用",
       icon:"graduation cap",
       list:[
@@ -83,12 +88,12 @@ const config = {
           name:"大物业",
           desc:"车场集中管理平台"
         },
-		{
+    {
           url:"http://roadpark.keytop.cn/#/Login",
           name:"路内停车收费平台",
           desc:"路内停车管理"
         },
-		{
+    {
           url:"https://park.keytop.cn/unityp/login",
           name:"停车云助手",
           desc:"停车云助手"
@@ -98,27 +103,27 @@ const config = {
           name:"科拓智慧停车接口示例",
           desc:"接口示例"
         },
-		  {
+      {
           url:"https://yunwei.keytop.cn",
           name:"运维中心管理平台",
           desc:"运维中心管理平台"
         },
-		  {
+      {
           url:"https://dc.keytop.cn/app/manage/index.html",
           name:"BI系统",
           desc:"科拓BI系统"
         },
-		  {
+      {
           url:"https://file.weizhen.xyz",
           name:"文件传输服务",
           desc:"文件传输服务"
         },
-	   {
+     {
           url:"https://kos.keytop.cn/dkqfront/pc.html#/Login",
           name:"商户助手PC版",
           desc:"商户助手PC版"
         },
-	  {
+    {
           url:"https://yongce.keytop.cn/unityp/login",
           name:"科拓永策平台",
           desc:"科拓永策平台"
@@ -216,17 +221,17 @@ const config = {
           name:"优酷",
           desc:"这世界很酷"
         },
-	 {
+   {
           url:"https://v.qq.com/",
           name:"腾讯视频",
           desc:"不负好时光"
         },
-	 {
+   {
           url:"https://www.douyu.com/",
           name:"斗鱼直播",
           desc:"每个人的直播平台"
         },
-	 {
+   {
           url:"https://www.huya.com/",
           name:"虎牙直播",
           desc:"1秒即开看直播"
@@ -279,7 +284,7 @@ const config = {
         }
       ]
     },
-	{
+  {
       name:"科学上网",
       icon:"cloud",
       list:[
@@ -376,6 +381,7 @@ const config = {
 
   ]
 }
+
 const el = (tag, attrs, content) => `<${tag} ${attrs.join(" ")}>${content}</${tag}>`;
 
 async function handleRequest(request) {
@@ -390,25 +396,14 @@ addEventListener('fetch', event => {
   return event.respondWith(handleRequest(event.request))
 })
 
-
-
 function getFavicon(url){
-  if(url.match(/https{0,1}:\/\//)){
-  return  "https://obs.weizhen.xyz/Favicon.png";
-  
-
-  }else{
-  return  "https://obs.weizhen.xyz/Favicon.png";
-
-  } 
+  return "https://obs.weizhen.xyz/Favicon.png";
 }
-
 
 function renderIndex(){
   const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/vip-weizhen/sites"','target="_blank"'],el('i',['class="github icon"'],"") + 'Mr.wei') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + '麻省理工学院执照')+' Mail: vip.weizhen@gmail.com '));
   return renderHeader() + renderMain() + footer;
 }
-
 
 function renderMain() {
   var main = config.lists.map((item) => {
@@ -440,10 +435,8 @@ function renderSeller() {
   return el('div',['id="seller"','class="ui basic modal"'],title + content + action);
 }
 
-
 function renderHeader() {
   const item = (template, name) => el('a', ['class="item"', `data-url="${template}"`], name);
-
   const mediaList = [
     "https://lf9-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/video/earth_v6.mp4",
     "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
@@ -451,17 +444,13 @@ function renderHeader() {
     "https://obs.weizhen.xyz/bgv/lizi.mp4",
     "https://obs.weizhen.xyz/bgv/lizi-1.mp4",
     "https://obs.weizhen.xyz/bgv/shuye.mp4",
-    // 董霞说吓人 "https://obs.weizhen.xyz/bgv/cat.mp4",
     "https://obs.weizhen.xyz/bgv/rain.mp4",
     "https://obs.weizhen.xyz/bgv/rain-1.mp4",
     "https://obs.weizhen.xyz/bgv/sea.mp4"
-
-
   ];
 
   const randomMedia = mediaList[Math.floor(Math.random() * mediaList.length)];
   const isVideo = randomMedia.endsWith(".mp4");
-
   const backgroundHtml = isVideo
     ? `<video autoplay muted loop id="myVideo"><source src="${randomMedia}" type="video/mp4"></video>`
     : `<img id="myVideo" src="${randomMedia}" style="width:100%;height:100%;object-fit:cover;" />`;
@@ -480,6 +469,9 @@ function renderHeader() {
     el('input', ['id="searchinput"', 'type="search"', 'placeholder="搜索你想要知道的……"', 'autocomplete="off"'], "") +
     el('i', ['class="inverted circular search link icon"'], ""));
 
+  // 夜间模式按钮
+  var darkModeBtn = el('div', ['id="dark-mode-toggle"'], el('i', ['id="dark-mode-icon"', 'class="moon icon"'], ""));
+
   return el('header', [],
     el('div', ['id="head"', 'class="ui inverted vertical masthead center aligned segment"'],
       el('div', ['class="video-background"'], backgroundHtml) +
@@ -490,89 +482,106 @@ function renderHeader() {
         `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : ''}`
       )
     )
-  );
+  ) + darkModeBtn;
 }
-
 
 function renderHTML(index,seller) {
   return `<!DOCTYPE html>
-  <html lang="en">
+  <html lang="zh-CN">
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>${config.title} - ${config.subtitle}</title>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
       <link href="https://obs.weizhen.xyz/sites.style.min.css" rel="stylesheet">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
       <link rel="shortcut icon" href="https://obs.weizhen.xyz/sites-ico.png" />
-      <link rel="bookmark" href="https://obs.weizhen.xyz/sites-ico.png" type="image/x-icon"　/>
-
       <style>
-      .video-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: -1;
-      }
+      .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
+      #myVideo { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); }
+      #head { background: rgba(0, 0, 0, 0) !important; position: relative; }
       
-      #myVideo {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        transform: translateX(-50%) translateY(-50%);
+      /* 切换按钮样式 */
+      #dark-mode-toggle {
+        position: fixed; bottom: 30px; right: 30px; z-index: 999;
+        width: 48px; height: 48px; border-radius: 50%;
+        background: rgba(255,255,255,0.9); color: #333;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
-      
-      #head {
-        background: rgba(0, 0, 0, 0) !important;
-        position: relative;
-      }
-    </style>
+      #dark-mode-toggle:hover { transform: scale(1.1); }
+      #dark-mode-toggle i { margin: 0; font-size: 1.2rem; }
 
-    
+      /* 夜间模式覆盖逻辑 */
+      body.dark-mode { background-color: #1b1c1d !important; color: #eee; }
+      body.dark-mode main { background: #1b1c1d !important; background-image: none !important; }
+      body.dark-mode .footer { background-color: #161718 !important; color: #888; border-top: 1px solid #333; }
+      body.dark-mode .ui.cards > .card { 
+        background: #242526 !important; 
+        box-shadow: 0 2px 10px rgba(0,0,0,0.5) !important; 
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      body.dark-mode .ui.cards > .card:hover { 
+        box-shadow: 0 5px 20px rgba(33, 133, 208, 0.3) !important; 
+        transform: translateY(-5px);
+      }
+      body.dark-mode .ui.cards > .card .header { color: #fff !important; }
+      body.dark-mode .ui.cards > .card .meta { color: rgba(255,255,255,0.4) !important; }
+      body.dark-mode .ui.horizontal.divider.header { color: #555 !important; }
+      body.dark-mode #dark-mode-toggle { background: #333; color: #fbbd08; }
+      
+      /* 针对搜索框的夜间微调 */
+      body.dark-mode .ui.input input { background: #2b2c2d !important; color: #fff !important; border-color: #444 !important; }
+    </style>
   </head>
   <body>
-
     ${index}
     ${config.selling_ads ? seller : ''}
     <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
     <script>
+      // 搜索逻辑
       $('#sengine a').on('click', function (e) {
-        $('#sengine a.active').toggleClass('active');
-        $(e.target).toggleClass('active');
-        $('#search-fav').attr('src',$(e.target).data('url').match(`+/https{0,1}:\/\/\S+\//+`)[0] + 'favicon.ico') ;
+        $('#sengine a.active').removeClass('active');
+        $(e.target).addClass('active');
+        const template = $(e.target).data('url');
+        const domain = template.split('/')[2];
+        $('#search-fav').attr('src', 'https://' + domain + '/favicon.ico');
       });
-      $('.search').on('click', function (e) {
+      $('.search').on('click', function () {
           var url = $('#sengine a.active').data('url');
-          url = url.replace(`+/\$s/+`,$('#searchinput').val());
+          url = url.replace('$s', $('#searchinput').val());
           window.open(url);
       });
-     
-      $("#searchinput").bind("keypress", function(){
-          if (event.keyCode == 13){
-        
-          $(".search").click();
-          }
+      $("#searchinput").bind("keypress", function(e){
+          if (e.keyCode == 13){ $(".search").click(); }
       });
-      $('#menubtn').on('click', function (e) {
-          $('#seller').modal('show');
+      $('#menubtn').on('click', function () { $('#seller').modal('show'); });
+
+      // 夜间模式切换核心逻辑
+      function applyTheme(isDark) {
+        if (isDark) {
+          $('body').addClass('dark-mode');
+          $('#dark-mode-icon').removeClass('moon').addClass('sun');
+        } else {
+          $('body').removeClass('dark-mode');
+          $('#dark-mode-icon').removeClass('sun').addClass('moon');
+        }
+      }
+      // 初始化检查
+      const savedTheme = localStorage.getItem('dark-mode');
+      if (savedTheme === 'true' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        applyTheme(true);
+      }
+      // 点击事件
+      $('#dark-mode-toggle').on('click', function() {
+        const isNowDark = !$('body').hasClass('dark-mode');
+        applyTheme(isNowDark);
+        localStorage.setItem('dark-mode', isNowDark);
       });
     </script>
-   
-
-
     <script src="https://obs.weizhen.xyz/sites.mouse.js"></script>
-    
   </body>
-
   </html>`
-
 }

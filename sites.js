@@ -456,7 +456,30 @@ function renderHeader() {
     : `<img id="myVideo" src="${randomMedia}" style="width:100%;height:100%;object-fit:cover;" />`;
 
   var nav = el('div', ['class="ui large secondary inverted menu"'], el('div', ['class="item"'], el('p', ['id="hitokoto"'], '条条大路通罗马')));
-  var title = el('h1', ['class="ui inverted header"'], el('i', [`class="${config.logo_icon} icon"`], "") + el('div', ['class="content"'], config.title + el('div', ['class="sub header"'], config.subtitle)));
+
+  // ★ 核心改动：将原来的 title 替换为实时时钟组件
+  var title = `
+<div id="clock-display" style="
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 6px 40px; margin-bottom: 4px; margin-top: -28px;
+">
+  <div id="clock-time" style="
+    font-size: 3.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 6px;
+    line-height: 1;
+    font-family: 'Courier New', Consolas, monospace;
+    text-shadow: 0 0 20px rgba(255,255,255,0.3);
+  "></div>
+  <div id="clock-date" style="
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.82);
+    margin-top: 8px;
+    letter-spacing: 3px;
+    font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  "></div>
+</div>`;
 
   var menu = el('div', ['id="sengine"', 'class="ui bottom attached tabular inverted secondary menu"'], el('div', ['class="header item"'], '&nbsp;') + config.search_engine.map((link, key) => {
     return key === 0
@@ -500,8 +523,15 @@ function renderHTML(index,seller) {
       <style>
       .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
       #myVideo { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); }
-      #head { background: rgba(0, 0, 0, 0) !important; position: relative; }
+      #head { background: rgba(0, 0, 0, 0) !important; position: relative; min-height: 0 !important; padding: 0 0 0.4em !important; }
       
+      /* 时钟秒数闪烁动画 */
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.6; }
+      }
+      .clock-colon { animation: pulse 1s ease-in-out infinite; }
+
       /* 切换按钮样式 */
       #dark-mode-toggle {
         position: fixed; bottom: 30px; right: 30px; z-index: 999;
@@ -541,6 +571,25 @@ function renderHTML(index,seller) {
     ${config.selling_ads ? seller : ''}
     <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
     <script>
+      // ★ 实时时钟逻辑
+      function updateClock() {
+        var now = new Date();
+        var weeks = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+        var h = String(now.getHours()).padStart(2, '0');
+        var m = String(now.getMinutes()).padStart(2, '0');
+        var s = String(now.getSeconds()).padStart(2, '0');
+        var y = now.getFullYear();
+        var mo = String(now.getMonth() + 1).padStart(2, '0');
+        var d = String(now.getDate()).padStart(2, '0');
+        var w = weeks[now.getDay()];
+        var timeEl = document.getElementById('clock-time');
+        var dateEl = document.getElementById('clock-date');
+        if (timeEl) timeEl.innerHTML = h + '<span class="clock-colon">:</span>' + m + '<span class="clock-colon">:</span>' + s;
+        if (dateEl) dateEl.textContent = y + ' 年 ' + mo + ' 月 ' + d + ' 日　' + w;
+      }
+      updateClock();
+      setInterval(updateClock, 1000);
+
       // 搜索逻辑
       $('#sengine a').on('click', function (e) {
         $('#sengine a.active').removeClass('active');

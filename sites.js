@@ -43,18 +43,6 @@ const config = {
       template:"https://kt-wb.weizhen.xyz/?name=$s"
     }
   ],
-  selling_ads: false,
-  sell_info:{
-    domain:"example.com",
-    price:500,
-    mon_unit:"yen sign",
-    contact:[
-      {
-        type:"envelope",
-        content:"info@example.com"
-      }
-    ]                        
-  },
 
 
   lists: [
@@ -385,12 +373,9 @@ const config = {
 const el = (tag, attrs, content) => `<${tag} ${attrs.join(" ")}>${content}</${tag}>`;
 
 async function handleRequest(request) {
-  const init = {
-    headers: {
-      'content-type': 'text/html;charset=UTF-8',
-    },
-  }
-  return new Response(renderHTML(renderIndex(),config.selling_ads? renderSeller() :null), init);
+  return new Response(renderHTML(renderIndex()), {
+    headers: { 'content-type': 'text/html;charset=UTF-8' }
+  });
 }
 addEventListener('fetch', event => {
   return event.respondWith(handleRequest(event.request))
@@ -418,21 +403,6 @@ function renderMain() {
   }).join("");
   
   return el('main',[],el('div',['class="ui container"'],main));
-}
-
-function renderSeller() {
-  const item = (type,content) => el('div',['class="item"'],el('i',[`class="${type} icon"`],"") + el('div',['class="content"'],content));
-  var title = el('h1',['class="ui yellow dividing header"'],el('i',['class="gem outline icon"'],"") + el('div',['class="content"'],config.sell_info.domain + ' 正在出售'));
-  var action = el('div',['class="actions"'],el('div',['class="ui basic cancel inverted button"'],el('i',['class="reply icon"'],"") + '返回'));
-
-  var contact = config.sell_info.contact.map((list) => {
-    return item(list.type,list.content);
-  }).join("");
-  var column = el('div',['class="column"'],el('h3',['class="ui center aligned icon inverted header"'],el('i',['class="circular envelope open outline grey inverted icon"'],"") + '联系我') + el('div',['class="ui relaxed celled large list"'],contact));
-  var price = el('div',['class="column"'],el('div',['class="ui large yellow statistic"'],el('div',['class="value"'],el('i',[`class="${config.sell_info.mon_unit} icon"`],"") + config.sell_info.price)));
-  var content = el('div',['class="content"'],el('div',['class="ui basic segment"'],el('div',['class="ui two column stackable center aligned grid"'],el('div',['class="ui inverted vertical divider"'],'感兴趣？') + el('div',['class="middle aligned row"'],price + column))));
-
-  return el('div',['id="seller"','class="ui basic modal"'],title + content + action);
 }
 
 function renderHeader() {
@@ -501,14 +471,13 @@ function renderHeader() {
       (config.hitokoto ? el('div', ['id="nav"', 'class="ui container"'], nav) : "") +
       el('div', ['id="title"', 'class="ui text container"'],
         title +
-        (config.search ? input + menu : "") +
-        `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : ''}`
+        (config.search ? input + menu : "")
       )
     )
   ) + darkModeBtn;
 }
 
-function renderHTML(index,seller) {
+function renderHTML(index) {
   return `<!DOCTYPE html>
   <html lang="zh-CN">
   <head>
@@ -568,13 +537,12 @@ function renderHTML(index,seller) {
   </head>
   <body>
     ${index}
-    ${config.selling_ads ? seller : ''}
     <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
     <script>
-      // ★ 实时时钟逻辑
+      // 时钟逻辑
       function updateClock() {
         var now = new Date();
-        var weeks = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+        var weeks = ['\u661f\u671f\u65e5','\u661f\u671f\u4e00','\u661f\u671f\u4e8c','\u661f\u671f\u4e09','\u661f\u671f\u56db','\u661f\u671f\u4e94','\u661f\u671f\u516d'];
         var h = String(now.getHours()).padStart(2, '0');
         var m = String(now.getMinutes()).padStart(2, '0');
         var s = String(now.getSeconds()).padStart(2, '0');
@@ -585,7 +553,7 @@ function renderHTML(index,seller) {
         var timeEl = document.getElementById('clock-time');
         var dateEl = document.getElementById('clock-date');
         if (timeEl) timeEl.innerHTML = h + '<span class="clock-colon">:</span>' + m + '<span class="clock-colon">:</span>' + s;
-        if (dateEl) dateEl.textContent = y + ' 年 ' + mo + ' 月 ' + d + ' 日　' + w;
+        if (dateEl) dateEl.textContent = y + ' \u5e74 ' + mo + ' \u6708 ' + d + ' \u65e5\u3000' + w;
       }
       updateClock();
       setInterval(updateClock, 1000);
@@ -594,21 +562,19 @@ function renderHTML(index,seller) {
       $('#sengine a').on('click', function (e) {
         $('#sengine a.active').removeClass('active');
         $(e.target).addClass('active');
-        const template = $(e.target).data('url');
-        const domain = template.split('/')[2];
+        var template = $(e.target).data('url');
+        var domain = template.split('/')[2];
         $('#search-fav').attr('src', 'https://' + domain + '/favicon.ico');
       });
       $('.search').on('click', function () {
-          var url = $('#sengine a.active').data('url');
-          url = url.replace('$s', $('#searchinput').val());
-          window.open(url);
+        var url = $('#sengine a.active').data('url');
+        url = url.replace('$s', $('#searchinput').val());
+        window.open(url);
       });
-      $("#searchinput").bind("keypress", function(e){
-          if (e.keyCode == 13){ $(".search").click(); }
+      $('#searchinput').bind('keypress', function(e){
+        if (e.keyCode == 13){ $('.search').click(); }
       });
-      $('#menubtn').on('click', function () { $('#seller').modal('show'); });
-
-      // 夜间模式切换核心逻辑
+      // 夜间模式
       function applyTheme(isDark) {
         if (isDark) {
           $('body').addClass('dark-mode');
@@ -618,14 +584,12 @@ function renderHTML(index,seller) {
           $('#dark-mode-icon').removeClass('sun').addClass('moon');
         }
       }
-      // 初始化检查
-      const savedTheme = localStorage.getItem('dark-mode');
+      var savedTheme = localStorage.getItem('dark-mode');
       if (savedTheme === 'true' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         applyTheme(true);
       }
-      // 点击事件
       $('#dark-mode-toggle').on('click', function() {
-        const isNowDark = !$('body').hasClass('dark-mode');
+        var isNowDark = !$('body').hasClass('dark-mode');
         applyTheme(isNowDark);
         localStorage.setItem('dark-mode', isNowDark);
       });

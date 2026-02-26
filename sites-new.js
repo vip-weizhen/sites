@@ -604,24 +604,32 @@ function renderHTML(index) {
 
       /* ── 分组标题 ── */
       .ui.horizontal.divider.header {
-        display: inline-flex !important;
+        display: flex !important;
         align-items: center !important;
-        color: #2d5a9e !important;
-        font-size: 1.15rem !important;
-        font-weight: 800 !important;
+        color: #3a5a8a !important;
+        font-size: 1rem !important;
+        font-weight: 700 !important;
         letter-spacing: 3px !important;
         text-transform: none !important;
-        margin: 2rem 0 1rem !important;
-        padding: 0 0.2em 0.5em 0 !important;
+        margin: 2.2rem 0 1.2rem !important;
+        padding: 0 !important;
         background: transparent !important;
-        border-radius: 0 !important;
-        border-left: none !important;
-        border-bottom: 3px solid #2d5a9e !important;
-        width: auto !important;
+        border: none !important;
+        width: 100% !important;
+        gap: 1em;
       }
       .ui.horizontal.divider.header::before,
-      .ui.horizontal.divider.header::after { display: none !important; }
-      .ui.horizontal.divider.header i { color: #2d5a9e !important; margin-right: 0.5em !important; font-size: 1.05em !important; }
+      .ui.horizontal.divider.header::after {
+        content: '' !important;
+        display: block !important;
+        flex: 1 !important;
+        height: 1px !important;
+        background: linear-gradient(90deg, transparent, #b0bbcc) !important;
+      }
+      .ui.horizontal.divider.header::after {
+        background: linear-gradient(90deg, #b0bbcc, transparent) !important;
+      }
+      .ui.horizontal.divider.header i { color: #5580b8 !important; margin-right: 0.3em !important; font-size: 1em !important; }
 
       /* ── 卡片网格 ── */
       .ui.four.stackable.cards { margin: 0 !important; gap: 1rem !important; display: flex !important; flex-wrap: wrap !important; }
@@ -679,15 +687,10 @@ function renderHTML(index) {
       body.dark-mode .ui.cards > .card { background: #1e2030 !important; border-color: rgba(255,255,255,0.06) !important; box-shadow: 0 2px 14px rgba(0,0,0,0.4) !important; }
       body.dark-mode .ui.cards > .card:hover { box-shadow: 0 14px 36px rgba(99,179,237,0.12) !important; }
       body.dark-mode .ui.cards > .card .content .header { color: #e8eaf2 !important; }
-      body.dark-mode .ui.cards > .card .content .meta { color: rgba(255,255,255,0.38) !important; }      body.dark-mode .ui.horizontal.divider.header {
-        color: #7baee8 !important;
-        background: transparent !important;
-        border-left: none !important;
-        border-bottom: 3px solid #7baee8 !important;
-      }
+      body.dark-mode .ui.cards > .card .content .meta { color: rgba(255,255,255,0.38) !important; }      body.dark-mode .ui.horizontal.divider.header { color: #7baee8 !important; border: none !important; }
       body.dark-mode .ui.horizontal.divider.header i { color: #7baee8 !important; }
-      body.dark-mode .ui.horizontal.divider.header::before,
-      body.dark-mode .ui.horizontal.divider.header::after { display: none !important; }
+      body.dark-mode .ui.horizontal.divider.header::before { background: linear-gradient(90deg, transparent, #3a4a62) !important; display: block !important; }
+      body.dark-mode .ui.horizontal.divider.header::after { background: linear-gradient(90deg, #3a4a62, transparent) !important; display: block !important; }
       body.dark-mode .footer { background: #191a24 !important; border-top-color: #2a2b38 !important; color: #555 !important; }
       body.dark-mode .footer .ui.label { background: #22232e !important; color: #888 !important; border-color: #333 !important; }
       body.dark-mode #dark-mode-toggle { background: #22232e; color: #fbbd08; }

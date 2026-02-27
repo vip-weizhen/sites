@@ -175,7 +175,7 @@ const config = {
         },
         {
           url:"https://gemini.google.com",
-          name:"Gemini          ",
+          name:"Gemini",
           desc:"你好！"
         }
       ]
@@ -483,7 +483,12 @@ function renderHTML(index) {
       /* ── 基础 ── */
       *, *::before, *::after { box-sizing: border-box; }
       html { font-size: 16px; }
-      body { background: #f0f2f5 !important; }
+      body {
+        background-color: #eef0f5 !important;
+        background-image: none !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+      }
 
       /* ── 自定义滚动条 ── */
       ::-webkit-scrollbar { width: 6px; }
@@ -492,10 +497,22 @@ function renderHTML(index) {
       ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.32); }
 
       /* ── 视频背景 ── */
-      .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
-      .video-background::after { content:''; position:absolute; inset:0; background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.5) 100%); }
+      .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
+      .video-background::after {
+        content:''; position:absolute; inset:0; z-index: 1;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.55) 100%);
+      }
       #myVideo { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); }
-      #head { background: rgba(0,0,0,0) !important; position: relative; min-height: 0 !important; padding: 0 0 1.8em !important; }
+      #head {
+        background: rgba(0,0,0,0) !important;
+        position: relative;
+        min-height: 0 !important;
+        padding: 0 0 2em !important;
+        margin-bottom: 0 !important;
+        overflow: hidden;
+      }
+      #nav, #title { position: relative; z-index: 2; }
+      #search-wrap { margin-bottom: 0; }
 
       /* ── 一言 ── */
       #nav { padding-top: 1.4em !important; padding-bottom: 0 !important; }
@@ -597,9 +614,19 @@ function renderHTML(index) {
       .sengine-item:hover { color: #fff; background: rgba(255,255,255,0.12); }
       .sengine-item.active { color: #fff; font-weight: 600; background: rgba(255,255,255,0.2); }
 
-      /* ── main 区域 ── */
-      main { background: transparent !important; }
-      main > .ui.container { padding: 1.2rem 1.5rem 4rem !important; max-width: 1400px !important; }
+      /* ── 全局间距重置 ── */
+      html, body { margin: 0 !important; padding: 0 !important; }
+      header, main, footer { display: block; margin: 0 !important; padding: 0 !important; }
+      main {
+        background: transparent !important;
+        position: relative;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      /* 覆盖Semantic UI masthead segment底部margin */
+      .ui.inverted.vertical.masthead.segment { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+      header { display: block; margin-bottom: 0 !important; padding-bottom: 0 !important; }
+      main > .ui.container { padding: 1.5rem 2rem 4rem !important; max-width: 1280px !important; position: relative; z-index: 1; margin-top: 0 !important; }
       .ui.basic.segment { padding: 0 !important; margin: 0 !important; }
 
       /* ── 分组标题 ── */
@@ -656,12 +683,6 @@ function renderHTML(index) {
         object-fit: contain !important; background: transparent !important;
         border: none !important; box-shadow: none !important; margin: 0 !important; float: none !important;
       }
-      .ui.cards > .card img.avatar {
-        width: 42px !important; height: 42px !important;
-        border-radius: 10px !important; flex-shrink: 0 !important;
-        object-fit: contain !important; background: transparent !important;
-        border: none !important; box-shadow: none !important; margin: 0 !important; float: none !important;
-      }
 
       /* ── footer ── */
       .footer { background: #fff !important; border-top: 1px solid #eaecf0 !important; padding: 1.4rem 0 !important; text-align: center; font-size: 0.88rem; color: #aaa !important; letter-spacing: 0.5px; }
@@ -682,12 +703,16 @@ function renderHTML(index) {
       #dark-mode-toggle i { margin: 0; font-size: 1.2rem; }
 
       /* ── 夜间模式 ── */
-      body.dark-mode { background: #12131a !important; }
+      body.dark-mode {
+        background-color: #12131a !important;
+        background-image: none !important;
+      }
       body.dark-mode main { background: transparent !important; }
       body.dark-mode .ui.cards > .card { background: #1e2030 !important; border-color: rgba(255,255,255,0.06) !important; box-shadow: 0 2px 14px rgba(0,0,0,0.4) !important; }
       body.dark-mode .ui.cards > .card:hover { box-shadow: 0 14px 36px rgba(99,179,237,0.12) !important; }
       body.dark-mode .ui.cards > .card .content .header { color: #e8eaf2 !important; }
-      body.dark-mode .ui.cards > .card .content .meta { color: rgba(255,255,255,0.38) !important; }      body.dark-mode .ui.horizontal.divider.header { color: #7baee8 !important; border: none !important; }
+      body.dark-mode .ui.cards > .card .content .meta { color: rgba(255,255,255,0.38) !important; }
+      body.dark-mode .ui.horizontal.divider.header { color: #7baee8 !important; border: none !important; }
       body.dark-mode .ui.horizontal.divider.header i { color: #7baee8 !important; }
       body.dark-mode .ui.horizontal.divider.header::before { background: linear-gradient(90deg, transparent, #3a4a62) !important; display: block !important; }
       body.dark-mode .ui.horizontal.divider.header::after { background: linear-gradient(90deg, #3a4a62, transparent) !important; display: block !important; }
@@ -702,10 +727,10 @@ function renderHTML(index) {
         #clock-time { font-size: 4rem !important; }
         #clock-date { font-size: 1.1rem !important; }
         main > .ui.container { padding: 1rem 1.2rem 3rem !important; }
-        .ui.four.stackable.cards > .card { width: calc(33.33% - 0.68rem) !important; }
+        .ui.four.stackable.cards > .card { width: calc(25% - 0.76rem) !important; }
       }
       @media (max-width: 768px) {
-        #head { padding: 0 0 1.8em !important; }
+        #head { padding: 0 !important; }
         #clock-time { font-size: 3rem !important; letter-spacing: 4px !important; }
         #clock-date { font-size: 0.95rem !important; letter-spacing: 2px !important; }
         #nav .item { font-size: 0.9rem !important; }
@@ -722,7 +747,7 @@ function renderHTML(index) {
         #dark-mode-toggle { width: 44px; height: 44px; bottom: 20px; right: 16px; }
       }
       @media (max-width: 480px) {
-        #head { padding: 0 0 1.4em !important; }
+        #head { padding: 0 !important; }
         #clock-time { font-size: 2.4rem !important; letter-spacing: 2px !important; }
         #clock-date { font-size: 0.82rem !important; letter-spacing: 1px !important; }
         #nav { padding-top: 1.1em !important; }
@@ -739,7 +764,7 @@ function renderHTML(index) {
       }
     </style>
   </head>
-  <body>
+  <body style="margin:0;padding:0;">
     ${index}
     <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
     <script>

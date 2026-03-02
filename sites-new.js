@@ -372,8 +372,62 @@ const config = {
 
 const el = (tag, attrs, content) => `<${tag} ${attrs.join(" ")}>${content}</${tag}>`;
 
+async function fetchWeather(clientIP) {
+  try {
+    // 1. 用ip-api在服务端查城市和坐标（Worker端无CORS限制）
+    const geoUrl = 'http://ip-api.com/json/' + (clientIP || '') + '?fields=city,lat,lon&lang=zh-CN';
+    const geoRes = await fetch(geoUrl);
+    const geo = await geoRes.json();
+    const city = geo.city || '未知城市';
+    const lat = geo.lat, lon = geo.lon;
+    if (!lat || !lon) return null;
+
+    // 2. 用open-meteo查天气
+    const wxUrl = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon
+      + '&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FShanghai&forecast_days=3';
+    const wxRes = await fetch(wxUrl);
+    const wx = await wxRes.json();
+    const daily = wx.daily;
+
+    const weatherCodes = {
+      0:'☀️ 晴',1:'🌤️ 晴间多云',2:'⛅ 多云',3:'☁️ 阴',
+      45:'🌫️ 雾',48:'🌫️ 霜雾',
+      51:'🌦️ 小毛毛雨',53:'🌦️ 毛毛雨',55:'🌧️ 大毛毛雨',
+      61:'🌧️ 小雨',63:'🌧️ 中雨',65:'🌧️ 大雨',
+      71:'🌨️ 小雪',73:'❄️ 中雪',75:'❄️ 大雪',77:'🌨️ 冰晶',
+      80:'🌦️ 小阵雨',81:'🌧️ 中阵雨',82:'⛈️ 强阵雨',
+      95:'⛈️ 雷阵雨',96:'⛈️ 雷雨夹冰雹',99:'⛈️ 强雷雨'
+    };
+    const labels = ['今天','明天','后天'];
+    let html = '<div class="weather-city">📍 ' + city + '</div><div class="weather-days">';
+    for (let i = 0; i < 3; i++) {
+      const code = daily.weathercode[i];
+      const label = weatherCodes[code] || '🌤️ 未知';
+      const icon = label.split(' ')[0];
+      const desc = label.split(' ')[1] || '';
+      const min = Math.round(daily.temperature_2m_min[i]);
+      const max = Math.round(daily.temperature_2m_max[i]);
+      html += `<div class="weather-day">
+        <div class="weather-day-label">${labels[i]}</div>
+        <div class="weather-day-icon">${icon}</div>
+        <div class="weather-day-temp">${min}~${max}°</div>
+        <div class="weather-day-desc">${desc}</div>
+      </div>`;
+    }
+    html += '</div>';
+    return html;
+  } catch(e) {
+    return null;
+  }
+}
+
 async function handleRequest(request) {
-  return new Response(renderHTML(renderIndex()), {
+  const ua = request.headers.get('User-Agent') || '';
+  const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
+  const clientIP = request.headers.get('CF-Connecting-IP') || '';
+  const timeout = new Promise(resolve => setTimeout(() => resolve(null), 2000));
+  const weatherHtml = isMobile ? null : await Promise.race([fetchWeather(clientIP), timeout]);
+  return new Response(renderHTML(renderIndex(weatherHtml), weatherHtml), {
     headers: { 'content-type': 'text/html;charset=UTF-8' }
   });
 }
@@ -385,9 +439,9 @@ function getFavicon(url){
   return 'https://obs.weizhen.xyz/Favicon.png';
 }
 
-function renderIndex(){
+function renderIndex(weatherHtml){
   const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/vip-weizhen/sites"','target="_blank"'],el('i',['class="github icon"'],"") + 'Mr.wei') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + '麻省理工学院执照')+' Mail: vip.weizhen@gmail.com '));
-  return renderHeader() + renderMain() + footer;
+  return renderHeader(weatherHtml) + renderMain() + footer;
 }
 
 function renderMain() {
@@ -401,7 +455,7 @@ function renderMain() {
         )
       )
     );
-    const divider = el('h4',['class="ui horizontal divider header"'],el('i',[`class="${item.icon} icon"`],"")+item.name);
+    const divider = el('div',['class="section-divider"'],`<span class="section-divider-inner"><i class="${item.icon} icon"></i>${item.name}</span>`);
 
     var content = el('div',['class="ui four stackable cards"'],item.list.map((link) =>{
       return card(link.url,link.name,link.desc);
@@ -413,7 +467,7 @@ function renderMain() {
   return el('main',[],el('div',['class="ui container"'],main));
 }
 
-function renderHeader() {
+function renderHeader(weatherHtml) {
   const item = (template, name) => el('a', ['class="item"', `data-url="${template}"`], name);
   const mediaList = [
     "https://lf9-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/video/earth_v6.mp4",
@@ -461,13 +515,16 @@ function renderHeader() {
   return el('header', [],
     el('div', ['id="head"', 'class="ui inverted vertical masthead center aligned segment"'],
       el('div', ['class="video-background"'], backgroundHtml) +
+      `<div id="weather-widget" style="${weatherHtml ? '' : 'display:none'}">
+        <div id="weather-content">${weatherHtml || ''}</div>
+      </div>` +
       (config.hitokoto ? el('div', ['id="nav"', 'class="ui container"'], nav) : "") +
       el('div', ['id="title"'], title + searchArea)
     )
   ) + darkModeBtn;
 }
 
-function renderHTML(index) {
+function renderHTML(index, weatherHtml) {
   return `<!DOCTYPE html>
   <html lang="zh-CN">
   <head>
@@ -649,33 +706,34 @@ function renderHTML(index) {
       .ui.basic.segment { padding: 0 !important; margin: 0 !important; }
 
       /* ── 分组标题 ── */
-      .ui.horizontal.divider.header {
-        display: flex !important;
-        align-items: center !important;
-        color: #3a5a8a !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
-        letter-spacing: 3px !important;
-        text-transform: none !important;
-        margin: 2.2rem 0 1.2rem !important;
-        padding: 0 !important;
-        background: transparent !important;
-        border: none !important;
-        width: 100% !important;
+      .section-divider {
+        display: flex;
+        align-items: center;
+        margin: 2rem 0 1.2rem;
         gap: 1em;
       }
-      .ui.horizontal.divider.header::before,
-      .ui.horizontal.divider.header::after {
-        content: '' !important;
-        display: block !important;
-        flex: 1 !important;
-        height: 1px !important;
-        background: linear-gradient(90deg, transparent, #b0bbcc) !important;
+      .section-divider::before,
+      .section-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: #c8cdd8;
       }
-      .ui.horizontal.divider.header::after {
-        background: linear-gradient(90deg, #b0bbcc, transparent) !important;
+      .section-divider-inner {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        color: #5a6880;
+        font-size: 0.92rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        white-space: nowrap;
       }
-      .ui.horizontal.divider.header i { color: #5580b8 !important; margin-right: 0.3em !important; font-size: 1em !important; }
+      .section-divider-inner i {
+        color: #8899bb;
+        font-size: 1em;
+        margin: 0;
+      }
 
       /* ── 卡片网格 ── */
       .ui.four.stackable.cards { margin: 0 !important; gap: 1rem !important; display: flex !important; flex-wrap: wrap !important; }
@@ -703,7 +761,48 @@ function renderHTML(index) {
         border: none !important; box-shadow: none !important; margin: 0 !important; float: none !important;
       }
 
-      /* ── footer ── */
+      /* ── 天气 widget ── */
+      #weather-widget {
+        position: absolute;
+        top: 14px; right: 18px;
+        z-index: 3;
+        background: rgba(0,0,0,0.3);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 18px;
+        padding: 16px 20px;
+        color: #fff;
+        font-family: 'Microsoft YaHei','PingFang SC',sans-serif;
+        min-width: 280px;
+      }
+      .weather-city {
+        font-size: 1rem;
+        font-weight: 600;
+        opacity: 0.95;
+        margin-bottom: 12px;
+        letter-spacing: 1.5px;
+        text-align: center;
+      }
+      .weather-days { display: flex; gap: 8px; }
+      .weather-day {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 14px;
+        padding: 12px 6px 10px;
+        gap: 6px;
+        transition: background 0.2s;
+      }
+      .weather-day:hover { background: rgba(255,255,255,0.18); }
+      .weather-day-label { font-size: 0.82rem; opacity: 0.7; letter-spacing: 1px; }
+      .weather-day-icon { font-size: 2.2rem; line-height: 1.2; }
+      .weather-day-temp { font-size: 0.92rem; font-weight: 700; letter-spacing: 0.5px; }
+      .weather-day-desc { font-size: 0.75rem; opacity: 0.65; }
+      @media (max-width: 768px) { #weather-widget { display: none; } }
       .footer { background: #fff !important; border-top: 1px solid #eaecf0 !important; padding: 1.4rem 0 !important; text-align: center; font-size: 0.88rem; color: #aaa !important; letter-spacing: 0.5px; }
       .footer .ui.label { background: #f4f6f9 !important; color: #666 !important; border: 1px solid #e0e4ea !important; border-radius: 6px !important; font-size: 0.82rem !important; transition: background 0.2s; }
       .footer .ui.label:hover { background: #e8edf5 !important; }
@@ -731,10 +830,10 @@ function renderHTML(index) {
       body.dark-mode .ui.cards > .card:hover { box-shadow: 0 14px 36px rgba(99,179,237,0.12) !important; }
       body.dark-mode .ui.cards > .card .content .header { color: #e8eaf2 !important; }
       body.dark-mode .ui.cards > .card .content .meta { color: rgba(255,255,255,0.38) !important; }
-      body.dark-mode .ui.horizontal.divider.header { color: #7baee8 !important; border: none !important; }
-      body.dark-mode .ui.horizontal.divider.header i { color: #7baee8 !important; }
-      body.dark-mode .ui.horizontal.divider.header::before { background: linear-gradient(90deg, transparent, #3a4a62) !important; display: block !important; }
-      body.dark-mode .ui.horizontal.divider.header::after { background: linear-gradient(90deg, #3a4a62, transparent) !important; display: block !important; }
+      body.dark-mode .section-divider::before,
+      body.dark-mode .section-divider::after { background: #2a3448; }
+      body.dark-mode .section-divider-inner { color: #6a82a0; }
+      body.dark-mode .section-divider-inner i { color: #4a6080; }
       body.dark-mode .footer { background: #191a24 !important; border-top-color: #2a2b38 !important; color: #555 !important; }
       body.dark-mode .footer .ui.label { background: #22232e !important; color: #888 !important; border-color: #333 !important; }
       body.dark-mode #dark-mode-toggle { background: #22232e; color: #fbbd08; }
@@ -760,7 +859,8 @@ function renderHTML(index) {
         main > .ui.container { padding: 0.8rem 0.9rem 2.5rem !important; }
         .ui.four.stackable.cards { gap: 0.75rem !important; }
         .ui.four.stackable.cards > .card { width: calc(50% - 0.38rem) !important; }
-        .ui.horizontal.divider.header { font-size: 0.95rem !important; margin: 1.6rem 0 0.9rem !important; }
+        .section-divider { margin: 1.6rem 0 0.9rem; }
+        .section-divider-inner { font-size: 0.88rem; }
         .ui.cards > .card .content { padding: 0.9em 1em !important; }
         .ui.cards > .card .content .header { font-size: 0.95rem !important; }
         .ui.cards > .card .content .meta { font-size: 0.8rem !important; }
@@ -888,6 +988,7 @@ function renderHTML(index) {
           '.ui.inverted.vertical.masthead.segment { margin-bottom:0!important; }',
         ].join('');
         document.head.appendChild(style);
+
       });
     </script>
     <script src="https://obs.weizhen.xyz/sites.mouse.js"></script>

@@ -148,7 +148,8 @@ async function handleRequest(request) {
   const clientIP = request.headers.get('CF-Connecting-IP') || '';
   const timeout = new Promise(resolve => setTimeout(() => resolve(null), 2000));
   const weatherHtml = isMobile ? null : await Promise.race([fetchWeather(clientIP), timeout]);
-  return new Response(renderHTML(renderIndex(weatherHtml)), {
+  const hitokotoScript = isMobile ? '' : `<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer><\/script>`;
+  return new Response(renderHTML(renderIndex(weatherHtml), hitokotoScript), {
     headers: { 'content-type': 'text/html;charset=UTF-8' }
   });
 }
@@ -225,14 +226,14 @@ function renderHeader(weatherHtml) {
   return el('header', [],
     el('div', ['id="head"', 'class="ui inverted vertical masthead center aligned segment"'],
       el('div', ['class="video-background"'], backgroundHtml) +
+      `<div id="hitokoto-widget"><i class="quote left icon"></i><span id="hitokoto">...</span></div>` +
       `<div id="weather-widget" style="${weatherHtml ? '' : 'display:none'}"><div id="weather-content">${weatherHtml || ''}</div></div>` +
-      (config.hitokoto ? el('div', ['id="nav"', 'class="ui container"'], nav) : '') +
       el('div', ['id="title"'], title + searchArea)
     )
   ) + darkModeBtn;
 }
 
-function renderHTML(index) {
+function renderHTML(index, hitokotoScript = '') {
   return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -255,12 +256,12 @@ function renderHTML(index) {
     .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
     .video-background::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.55) 100%); }
     #myVideo { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); }
-    #head { background: rgba(0,0,0,0) !important; position: relative; min-height: 0 !important; padding: 0 0 3.5em !important; margin-bottom: -1.5em !important; overflow: hidden; z-index: 1; }
+    #head { background: rgba(0,0,0,0) !important; position: relative; min-height: 0 !important; padding: 0 0 5em !important; margin-bottom: -1.5em !important; overflow: hidden; z-index: 1; }
     #nav, #title { position: relative; z-index: 2; }
     #nav { padding-top: 1.4em !important; padding-bottom: 0 !important; }
     #nav .menu { background: transparent !important; border: none !important; justify-content: center; min-height: 0 !important; }
     #nav .item { font-size: 0.95rem !important; letter-spacing: 2px; opacity: 0.85; text-shadow: 0 1px 6px rgba(0,0,0,0.4); padding: 0.4em 1em !important; }
-    #clock-display { margin-top: 0.5em !important; margin-bottom: 1em !important; }
+    #clock-display { margin-top: 1.8em !important; margin-bottom: 1.2em !important; }
     #clock-time { font-size: 5rem !important; letter-spacing: 8px !important; }
     #clock-date { font-size: 1.25rem !important; letter-spacing: 4px !important; margin-top: 10px !important; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.45} }
@@ -300,6 +301,9 @@ function renderHTML(index) {
     .ui.cards > .card .content .meta { font-size: 0.82rem !important; color: #999 !important; margin-top: 4px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; }
     .ui.cards > .card img.avatar { width: 38px !important; height: 38px !important; border-radius: 9px !important; flex-shrink: 0 !important; object-fit: contain !important; background: transparent !important; border: none !important; box-shadow: none !important; margin: 0 !important; float: none !important; }
     #weather-widget { position: absolute; top: 14px; right: 18px; z-index: 3; background: rgba(0,0,0,0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 16px 20px; color: #fff; font-family: 'Microsoft YaHei','PingFang SC',sans-serif; min-width: 280px; }
+    #hitokoto-widget { position: absolute; top: 14px; left: 18px; z-index: 3; background: rgba(0,0,0,0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 14px 18px; color: #fff; font-family: 'Microsoft YaHei','PingFang SC',sans-serif; max-width: 260px; display: flex; align-items: flex-start; gap: 8px; }
+    #hitokoto-widget .quote.left.icon { font-size: 1rem; opacity: 0.45; flex-shrink: 0; margin-top: 3px; }
+    #hitokoto-widget #hitokoto { font-size: 0.86rem; line-height: 1.75; opacity: 0.88; letter-spacing: 0.5px; }
     .weather-city { font-size: 1rem; font-weight: 600; opacity: 0.95; margin-bottom: 12px; letter-spacing: 1.5px; text-align: center; }
     .weather-days { display: flex; gap: 8px; }
     .weather-day { flex: 1; display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 12px 6px 10px; gap: 6px; transition: background 0.2s; }
@@ -308,7 +312,7 @@ function renderHTML(index) {
     .weather-day-icon { font-size: 2.2rem; line-height: 1.2; }
     .weather-day-temp { font-size: 0.92rem; font-weight: 700; letter-spacing: 0.5px; }
     .weather-day-desc { font-size: 0.75rem; opacity: 0.65; }
-    @media (max-width: 768px) { #weather-widget { display: none; } }
+    @media (max-width: 768px) { #weather-widget { display: none; } #hitokoto-widget { display: none; } }
     .footer { background: #fff !important; border-top: 1px solid #eaecf0 !important; padding: 1.4rem 0 !important; text-align: center; font-size: 0.88rem; color: #aaa !important; letter-spacing: 0.5px; }
     .footer .ui.label { background: #f4f6f9 !important; color: #666 !important; border: 1px solid #e0e4ea !important; border-radius: 6px !important; font-size: 0.82rem !important; transition: background 0.2s; }
     .footer .ui.label:hover { background: #e8edf5 !important; }
@@ -375,7 +379,7 @@ function renderHTML(index) {
 </head>
 <body style="margin:0;padding:0;">
   ${index}
-  <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+  ${hitokotoScript}
   <script>
     function updateClock() {
       var now = new Date();

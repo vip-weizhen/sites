@@ -20,24 +20,24 @@ const config = {
       name: "办公常用", icon: "graduation cap",
       list: [
         { url: "https://exmail.qq.com/login", name: "腾讯企业邮箱", desc: "专业、安全的企业邮箱服务" },
-        { url: "http://console608.keytop.cn:51320/console/wxcorp_login", name: "速停车", desc: "速停车后台管理" },
-        { url: "http://yun.keytop.cn/kite/page/index.html", name: "风筝", desc: "风筝管理系统" },
-        { url: "http://yun.keytop.cn/kitework/page/login.html", name: "工单", desc: "工单管理系统" },
-        { url: "http://ktapps.keytop.cn/cloud/cloud-base/login", name: "大物业", desc: "车场集中管理平台" },
+        { url: "http://console608.keytop.cn:51320/console/wxcorp_login", name: "速停车", desc: "速停车后台管理", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
+        { url: "http://yun.keytop.cn/kite/page/index.html", name: "风筝", desc: "风筝管理系统", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
+        { url: "http://yun.keytop.cn/kitework/page/login.html", name: "工单", desc: "工单管理系统", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
+        { url: "http://ktapps.keytop.cn/cloud/cloud-base/login", name: "大物业", desc: "车场集中管理平台", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
         { url: "http://roadpark.keytop.cn/#/Login", name: "路内停车收费平台", desc: "路内停车管理" },
-        { url: "https://park.keytop.cn/unityp/login", name: "停车云助手", desc: "停车云助手" },
-        { url: "https://api.weizhen.xyz", name: "科拓智慧停车接口示例", desc: "接口示例" },
+        { url: "https://park.keytop.cn/unityp/login", name: "停车云助手", desc: "停车云助手" , icon: "https://obs.weizhen.xyz/favicon/kt-yzs.png"},
+        { url: "https://api.weizhen.xyz", name: "科拓智慧停车接口示例", desc: "接口示例", icon: "https://docs.apipost.net/favicon.ico"},
         { url: "https://yunwei.keytop.cn", name: "运维中心管理平台", desc: "运维中心管理平台" },
-        { url: "https://dc.keytop.cn/app/manage/index.html", name: "BI系统", desc: "科拓BI系统" },
-        { url: "https://file.weizhen.xyz", name: "文件传输服务", desc: "文件传输服务" },
-        { url: "https://kos.keytop.cn/dkqfront/pc.html#/Login", name: "商户助手PC版", desc: "商户助手PC版" },
-        { url: "https://yongce.keytop.cn/unityp/login", name: "科拓永策平台", desc: "科拓永策平台" },
-        { url: "https://kp-open.keytop.cn/api/index.html", name: "统一接口管理平台", desc: "接口管理平台" },
-        { url: "https://kt-chongdz.keytop.cn/manage/login", name: "大圣充电平台", desc: "大圣充电" },
-        { url: "https://doc.weixin.qq.com/txdoc/apply_page?k=AD4AmwcwAA4CDxHO4iAMgA4Ab3AKg#/login", name: "维修替换料号表", desc: "维修替换料号表(实时更新)" },
-        { url: "https://yongce-smwy.keytop.cn/unityp/login", name: "科拓永策Pro平台", desc: "科拓永策Pro平台" },
-        { url: "https://find-car-admin.keytop.cn/unityp/login", name: "反向寻车引导", desc: "反向寻车引导管理平台" },
-        { url: "https://pay-1208.weizhen.xyz", name: "测试车场查询缴费", desc: "1208测试车场查询缴费" },
+        { url: "https://dc.keytop.cn/app/manage/index.html", name: "BI系统", desc: "科拓BI系统", icon: "https://obs.weizhen.xyz/favicon/dc.keytop.ico" },
+        { url: "https://file.weizhen.xyz", name: "文件传输服务", desc: "文件传输服务",icon: "https://obs.weizhen.xyz/favicon/file.png" },
+        { url: "https://kos.keytop.cn/dkqfront/pc.html#/Login", name: "商户助手PC版", desc: "商户助手PC版" , icon: "https://obs.weizhen.xyz/favicon/kt-yzs.png"},
+        { url: "https://yongce.keytop.cn/unityp/login", name: "科拓永策平台", desc: "科拓永策平台", icon: "https://yongce.keytop.cn/unityp/img/website.1c149054.png" },
+        { url: "https://kp-open.keytop.cn/api/index.html", name: "统一接口管理平台", desc: "接口管理平台", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
+        { url: "https://kt-chongdz.keytop.cn/manage/login", name: "大圣充电平台", desc: "大圣充电", icon: "https://kt-chongdz.keytop.cn/manage/favicon.ico" },
+        { url: "https://doc.weixin.qq.com/txdoc/apply_page?k=AD4AmwcwAA4CDxHO4iAMgA4Ab3AKg#/login", name: "维修替换料号表", desc: "维修替换料号表(实时更新)",icon: "https://obs.weizhen.xyz/favicon/docs.ico" },
+        { url: "https://yongce-smwy.keytop.cn/unityp/login", name: "科拓永策Pro平台", desc: "科拓永策Pro平台", icon: "https://yongce.keytop.cn/unityp/img/website.1c149054.png" },
+        { url: "https://find-car-admin.keytop.cn/unityp/login", name: "反向寻车引导", desc: "反向寻车引导管理平台", icon: "https://find-car-admin.keytop.cn/fcfront/favicon.ico" },
+        { url: "https://pay-1208.weizhen.xyz", name: "测试车场查询缴费", desc: "1208测试车场查询缴费", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
         { url: "http://game.weizhen.xyz", name: "🖐️🐟️🐟️🐟️", desc: "🖐️🐟️🐟️🐟️" }
       ]
     },
@@ -45,8 +45,8 @@ const config = {
       name: "人工智能", icon: "comment alternate",
       list: [
         { url: "https://chat.deepseek.com", name: "DeepSeek", desc: "探索未至之境" },
-        { url: "https://www.doubao.com", name: "豆包", desc: "你好，我是豆包" },
-        { url: "https://chatgpt.com", name: "ChatGPT", desc: "有什么可以帮忙的？" },
+        { url: "https://www.doubao.com", name: "豆包", desc: "你好，我是豆包" ,icon: "https://obs.weizhen.xyz/favicon/doubao.png"},
+        { url: "https://chatgpt.com", name: "ChatGPT", desc: "有什么可以帮忙的？", icon: "https://obs.weizhen.xyz/favicon/chatgpt.ico"},
         { url: "https://gemini.google.com", name: "Gemini", desc: "你好！" }
       ]
     },
@@ -92,7 +92,7 @@ const config = {
     {
       name: "工具集", icon: "cogs",
       list: [
-        { url: "https://tools.weizhen.xyz", name: "IT-Tools", desc: "助力开发人员和IT工作者" },
+        { url: "https://tools.weizhen.xyz", name: "IT-Tools", desc: "助力开发人员和IT工作者",icon: "https://obs.weizhen.xyz/favicon/tools.png" },
         { url: "https://tts.weizhen.xyz", name: "文本转语音", desc: "在线TTS转换工具" },
         { url: "https://sub.weizhen.xyz/sub?token=e7a8244ea81ace268547f7cd66520350", name: "FQ代理节点", desc: "科学上网节点订阅链接" },
         { url: "https://sub-api.weizhen.xyz", name: "订阅转换", desc: "在线订阅转换工具" },
@@ -222,18 +222,25 @@ function renderIndex(weatherHtml, lunarStr) {
 
 function renderMain() {
   const fallback = 'https://obs.weizhen.xyz/Favicon.png';
-  const card = (url, name, desc) => el('a', ['class="card"', `href=${url}`, 'target="_blank"'],
-    el('div', ['class="content"'],
-      el('img', ['class="left floated avatar ui image"', `src="${fallback}"`, `data-favicon="${getFavicon(url)}"`, 'loading="lazy"'], '') +
-      el('div', ['class="card-text"'],
-        el('div', ['class="header"'], name) +
-        el('div', ['class="meta"'], desc)
+  const card = (url, name, desc, icon) => {
+    const manualIcon = icon || '';
+    const autoIcon = getFavicon(url);
+    const imgAttrs = manualIcon
+      ? `src="${manualIcon}" onerror="this.src='${fallback}'"`
+      : `src="${fallback}" data-favicon="${autoIcon}"`;
+    return el('a', ['class="card"', `href=${url}`, 'target="_blank"'],
+      el('div', ['class="content"'],
+        `<img class="left floated avatar ui image" ${imgAttrs} loading="lazy">` +
+        el('div', ['class="card-text"'],
+          el('div', ['class="header"'], name) +
+          el('div', ['class="meta"'], desc)
+        )
       )
-    )
-  );
+    );
+  };
   const main = config.lists.map(item => {
     const divider = el('div', ['class="section-divider"'], `<span class="section-divider-inner"><i class="${item.icon} icon"></i>${item.name}</span>`);
-    const content = el('div', ['class="ui four stackable cards"'], item.list.map(link => card(link.url, link.name, link.desc)).join(''));
+    const content = el('div', ['class="ui four stackable cards"'], item.list.map(link => card(link.url, link.name, link.desc, link.icon)).join(''));
     return el('div', ['class="ui basic segment"'], divider + content);
   }).join('');
   return el('main', [], el('div', ['class="ui container"'], main));

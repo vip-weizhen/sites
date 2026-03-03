@@ -19,35 +19,35 @@ const config = {
     {
       name: "办公常用", icon: "graduation cap",
       list: [
-        { url: "https://exmail.qq.com/login", name: "腾讯企业邮箱", desc: "专业、安全的企业邮箱服务" },
+        { url: "https://exmail.qq.com/login", name: "腾讯企业邮箱", desc: "专业、安全的企业邮箱服务", icon: "https://obs.weizhen.xyz/favicon/exmail_logo.ico" },
         { url: "http://console608.keytop.cn:51320/console/wxcorp_login", name: "速停车", desc: "速停车后台管理", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
         { url: "http://yun.keytop.cn/kite/page/index.html", name: "风筝", desc: "风筝管理系统", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
         { url: "http://yun.keytop.cn/kitework/page/login.html", name: "工单", desc: "工单管理系统", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
         { url: "http://ktapps.keytop.cn/cloud/cloud-base/login", name: "大物业", desc: "车场集中管理平台", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
-        { url: "http://roadpark.keytop.cn/#/Login", name: "路内停车收费平台", desc: "路内停车管理" },
+        { url: "http://roadpark.keytop.cn/#/Login", name: "路内停车收费平台", desc: "路内停车管理",icon: "https://obs.weizhen.xyz/favicon/roadpark.ico" },
         { url: "https://park.keytop.cn/unityp/login", name: "停车云助手", desc: "停车云助手" , icon: "https://obs.weizhen.xyz/favicon/kt-yzs.png"},
         { url: "https://api.weizhen.xyz", name: "科拓智慧停车接口示例", desc: "接口示例", icon: "https://docs.apipost.net/favicon.ico"},
-        { url: "https://yunwei.keytop.cn", name: "运维中心管理平台", desc: "运维中心管理平台" },
+        { url: "https://yunwei.keytop.cn", name: "运维中心管理平台", desc: "运维中心管理平台" , icon: "https://obs.weizhen.xyz/favicon/kt-yw.ico"},
         { url: "https://dc.keytop.cn/app/manage/index.html", name: "BI系统", desc: "科拓BI系统", icon: "https://obs.weizhen.xyz/favicon/dc.keytop.ico" },
         { url: "https://file.weizhen.xyz", name: "文件传输服务", desc: "文件传输服务",icon: "https://obs.weizhen.xyz/favicon/file.png" },
         { url: "https://kos.keytop.cn/dkqfront/pc.html#/Login", name: "商户助手PC版", desc: "商户助手PC版" , icon: "https://obs.weizhen.xyz/favicon/kt-yzs.png"},
-        { url: "https://yongce.keytop.cn/unityp/login", name: "科拓永策平台", desc: "科拓永策平台", icon: "https://yongce.keytop.cn/unityp/img/website.1c149054.png" },
+        { url: "https://yongce.keytop.cn/unityp/login", name: "科拓永策平台", desc: "科拓永策平台", icon: "https://obs.weizhen.xyz/favicon/kt-yc.png" },
         { url: "https://kp-open.keytop.cn/api/index.html", name: "统一接口管理平台", desc: "接口管理平台", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
         { url: "https://kt-chongdz.keytop.cn/manage/login", name: "大圣充电平台", desc: "大圣充电", icon: "https://kt-chongdz.keytop.cn/manage/favicon.ico" },
         { url: "https://doc.weixin.qq.com/txdoc/apply_page?k=AD4AmwcwAA4CDxHO4iAMgA4Ab3AKg#/login", name: "维修替换料号表", desc: "维修替换料号表(实时更新)",icon: "https://obs.weizhen.xyz/favicon/docs.ico" },
-        { url: "https://yongce-smwy.keytop.cn/unityp/login", name: "科拓永策Pro平台", desc: "科拓永策Pro平台", icon: "https://yongce.keytop.cn/unityp/img/website.1c149054.png" },
-        { url: "https://find-car-admin.keytop.cn/unityp/login", name: "反向寻车引导", desc: "反向寻车引导管理平台", icon: "https://find-car-admin.keytop.cn/fcfront/favicon.ico" },
+        { url: "https://yongce-smwy.keytop.cn/unityp/login", name: "科拓永策Pro平台", desc: "科拓永策Pro平台", icon: "https://obs.weizhen.xyz/favicon/kt-yc.png" },
+        { url: "https://find-car-admin.keytop.cn/unityp/login", name: "反向寻车引导", desc: "反向寻车引导管理平台", icon: "https://obs.weizhen.xyz/favicon/roadpark.ico" },
         { url: "https://pay-1208.weizhen.xyz", name: "测试车场查询缴费", desc: "1208测试车场查询缴费", icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
-        { url: "http://game.weizhen.xyz", name: "🖐️🐟️🐟️🐟️", desc: "🖐️🐟️🐟️🐟️" }
+        { url: "http://game.weizhen.xyz", name: "🖐️🐟️🐟️🐟️", desc: "🖐️🐟️🐟️🐟️", icon: "https://obs.weizhen.xyz/favicon/game.png" }
       ]
     },
     {
       name: "人工智能", icon: "comment alternate",
       list: [
-        { url: "https://chat.deepseek.com", name: "DeepSeek", desc: "探索未至之境" },
+        { url: "https://chat.deepseek.com", name: "DeepSeek", desc: "探索未至之境" ,icon: "https://obs.weizhen.xyz/favicon/deepseek.png"},
         { url: "https://www.doubao.com", name: "豆包", desc: "你好，我是豆包" ,icon: "https://obs.weizhen.xyz/favicon/doubao.png"},
         { url: "https://chatgpt.com", name: "ChatGPT", desc: "有什么可以帮忙的？", icon: "https://obs.weizhen.xyz/favicon/chatgpt.ico"},
-        { url: "https://gemini.google.com", name: "Gemini", desc: "你好！" }
+        { url: "https://gemini.google.com", name: "Gemini", desc: "你好！",icon: "https://obs.weizhen.xyz/favicon/gemini.png" }
       ]
     },
     {
@@ -93,13 +93,13 @@ const config = {
       name: "工具集", icon: "cogs",
       list: [
         { url: "https://tools.weizhen.xyz", name: "IT-Tools", desc: "助力开发人员和IT工作者",icon: "https://obs.weizhen.xyz/favicon/tools.png" },
-        { url: "https://tts.weizhen.xyz", name: "文本转语音", desc: "在线TTS转换工具" },
-        { url: "https://sub.weizhen.xyz/sub?token=e7a8244ea81ace268547f7cd66520350", name: "FQ代理节点", desc: "科学上网节点订阅链接" },
-        { url: "https://sub-api.weizhen.xyz", name: "订阅转换", desc: "在线订阅转换工具" },
-        { url: "https://tvhelper.weizhen.xyz", name: "IPTV", desc: "IPTV直播源" },
-        { url: "https://tvbox.weizhen.xyz", name: "TVBOX", desc: "TVBOX点播源" },
-        { url: "https://url.weizhen.xyz", name: "网址缩短", desc: "短链生成器" },
-        { url: "https://js.weizhen.xyz", name: "镜像加速", desc: "GitHub Docker加速" }
+        { url: "https://tts.weizhen.xyz", name: "文本转语音", desc: "在线TTS转换工具" ,icon: "https://obs.weizhen.xyz/favicon/TTS.png"},
+        { url: "https://sub.weizhen.xyz/sub?token=e7a8244ea81ace268547f7cd66520350", name: "FQ代理节点", desc: "科学上网节点订阅链接" ,icon: "https://obs.weizhen.xyz/favicon/v2rayn.png"},
+        { url: "https://sub-api.weizhen.xyz", name: "订阅转换", desc: "在线订阅转换工具",icon: "https://obs.weizhen.xyz/favicon/sub-api.ico" },
+        { url: "https://tvhelper.weizhen.xyz", name: "IPTV", desc: "IPTV直播源",icon: "https://obs.weizhen.xyz/favicon/iptv.ico" },
+        { url: "https://tvbox.weizhen.xyz", name: "TVBOX", desc: "TVBOX点播源" ,icon: "https://obs.weizhen.xyz/favicon/tvbox.png"},
+        { url: "https://url.weizhen.xyz", name: "网址缩短", desc: "短链生成器",icon: "https://obs.weizhen.xyz/favicon/url.png" },
+        { url: "https://js.weizhen.xyz", name: "镜像加速", desc: "GitHub Docker加速" ,icon: "https://obs.weizhen.xyz/favicon/docker.png"}
       ]
     }
   ]

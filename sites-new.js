@@ -114,11 +114,9 @@ async function fetchWeather(clientIP) {
     const city = geo.city || '未知城市';
     const lat = geo.lat, lon = geo.lon;
     if (!lat || !lon) return null;
-
     const wxRes = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FShanghai&forecast_days=3');
     const wx = await wxRes.json();
     const daily = wx.daily;
-
     const codes = {
       0:'☀️ 晴', 1:'🌤️ 晴间多云', 2:'⛅ 多云', 3:'☁️ 阴',
       45:'🌫️ 雾', 48:'🌫️ 霜雾',
@@ -142,6 +140,57 @@ async function fetchWeather(clientIP) {
   }
 }
 
+function getLunarDate(date) {
+  const cal = {
+    2020:[[ 1,25],[30,29,30,29,30,30,29,30,30,29,30,29,30],4],
+    2021:[[ 2,12],[29,30,29,30,29,30,29,30,30,29,30,30,29],0],
+    2022:[[ 2, 1],[30,29,30,29,29,30,29,30,29,30,30,30,29],0],
+    2023:[[ 1,22],[30,29,30,29,30,29,30,29,30,29,30,30,29],2],
+    2024:[[ 2,10],[30,30,29,30,29,30,29,30,29,30,29,30,29],0],
+    2025:[[ 1,29],[30,30,29,30,30,29,30,29,30,29,30,29,29],6],
+    2026:[[ 2,17],[30,29,30,29,30,29,30,30,29,30,29,30],0],
+    2027:[[ 2, 6],[30,30,29,30,29,30,29,30,29,30,30,29],0],
+    2028:[[ 1,26],[30,29,30,30,29,30,29,30,29,30,29,30],0],
+    2029:[[ 2,13],[30,29,30,29,30,30,29,30,29,30,29,30,29],6],
+    2030:[[ 2, 3],[29,30,29,30,29,30,30,29,30,29,30,30],0],
+  };
+  const mNames = ['正','二','三','四','五','六','七','八','九','十','冬','腊'];
+  const dNames = ['初一','初二','初三','初四','初五','初六','初七','初八','初九','初十',
+    '十一','十二','十三','十四','十五','十六','十七','十八','十九','二十',
+    '廿一','廿二','廿三','廿四','廿五','廿六','廿七','廿八','廿九','三十'];
+  const d = new Date(date);
+  const y = d.getUTCFullYear();
+  let lunarYear = y, c = cal[y];
+  if (c) {
+    if (date < Date.UTC(y, c[0][0]-1, c[0][1])) { lunarYear = y-1; c = cal[y-1]; }
+  } else {
+    c = cal[y-1]; lunarYear = y-1;
+  }
+  if (!c) return '';
+  const cj = Date.UTC(lunarYear, c[0][0]-1, c[0][1]);
+  let diff = Math.floor((date - cj) / 86400000);
+  const months = c[1], leapAt = c[2];
+  let m = 0, isLeap = false;
+  for (m = 0; m < months.length; m++) {
+    if (diff < months[m]) break;
+    diff -= months[m];
+  }
+  let displayMonth = m + 1;
+  if (leapAt > 0 && m >= leapAt) {
+    if (m === leapAt) { isLeap = true; displayMonth = leapAt; }
+    else { displayMonth = m; }
+  }
+  return (isLeap?'闰':'') + mNames[displayMonth-1] + '月' + dNames[diff];
+}
+
+function getFavicon(url) {
+  try {
+    return `https://icon.horse/icon/${new URL(url).hostname}`;
+  } catch(e) {
+    return '';
+  }
+}
+
 async function handleRequest(request) {
   const ua = request.headers.get('User-Agent') || '';
   const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
@@ -149,7 +198,9 @@ async function handleRequest(request) {
   const timeout = new Promise(resolve => setTimeout(() => resolve(null), 2000));
   const weatherHtml = isMobile ? null : await Promise.race([fetchWeather(clientIP), timeout]);
   const hitokotoScript = isMobile ? '' : `<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer><\/script>`;
-  return new Response(renderHTML(renderIndex(weatherHtml), hitokotoScript), {
+  const nowUtc8 = new Date(Date.now() + 8 * 3600000);
+  const lunarStr = getLunarDate(Date.UTC(nowUtc8.getUTCFullYear(), nowUtc8.getUTCMonth(), nowUtc8.getUTCDate()));
+  return new Response(renderHTML(renderIndex(weatherHtml, lunarStr), hitokotoScript), {
     headers: { 'content-type': 'text/html;charset=UTF-8' }
   });
 }
@@ -158,11 +209,7 @@ addEventListener('fetch', event => {
   return event.respondWith(handleRequest(event.request));
 });
 
-function getFavicon(url) {
-  return 'https://obs.weizhen.xyz/Favicon.png';
-}
-
-function renderIndex(weatherHtml) {
+function renderIndex(weatherHtml, lunarStr) {
   const footer = el('footer', [], el('div', ['class="footer"'],
     'Powered by' +
     el('a', ['class="ui label"', 'href="https://github.com/vip-weizhen/sites"', 'target="_blank"'], el('i', ['class="github icon"'], '') + 'Mr.wei') +
@@ -170,13 +217,14 @@ function renderIndex(weatherHtml) {
     el('a', ['class="ui label"'], el('i', ['class="balance scale icon"'], '') + '麻省理工学院执照') +
     ' Mail: vip.weizhen@gmail.com'
   ));
-  return renderHeader(weatherHtml) + renderMain() + footer;
+  return renderHeader(weatherHtml, lunarStr) + renderMain() + footer;
 }
 
 function renderMain() {
+  const fallback = 'https://obs.weizhen.xyz/Favicon.png';
   const card = (url, name, desc) => el('a', ['class="card"', `href=${url}`, 'target="_blank"'],
     el('div', ['class="content"'],
-      el('img', ['class="left floated avatar ui image"', `src=${getFavicon(url)}`, 'onerror="this.src=\'https://obs.weizhen.xyz/Favicon.png\'"'], '') +
+      el('img', ['class="left floated avatar ui image"', `src="${fallback}"`, `data-favicon="${getFavicon(url)}"`, 'loading="lazy"'], '') +
       el('div', ['class="card-text"'],
         el('div', ['class="header"'], name) +
         el('div', ['class="meta"'], desc)
@@ -191,7 +239,7 @@ function renderMain() {
   return el('main', [], el('div', ['class="ui container"'], main));
 }
 
-function renderHeader(weatherHtml) {
+function renderHeader(weatherHtml, lunarStr) {
   const mediaList = [
     "https://lf9-static.bytednsdoc.com/obj/eden-cn/uhbfnupkbps/video/earth_v6.mp4",
     "https://lf3-static.bytednsdoc.com/obj/eden-cn/111eh7nupehpqps/1008%E6%BA%90%E8%BF%9C%E6%B5%81%E9%95%BF22.mp4",
@@ -208,11 +256,9 @@ function renderHeader(weatherHtml) {
     ? `<video autoplay muted loop id="myVideo"><source src="${randomMedia}" type="video/mp4"></video>`
     : `<img id="myVideo" src="${randomMedia}" style="width:100%;height:100%;object-fit:cover;" />`;
 
-  const nav = el('div', ['class="ui large secondary inverted menu"'], el('div', ['class="item"'], el('p', ['id="hitokoto"'], '条条大路通罗马')));
-
   const title = `<div id="clock-display" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;margin-bottom:1em;margin-top:0;">
   <div id="clock-time" style="font-size:5rem;font-weight:700;color:#ffffff;letter-spacing:8px;line-height:1;font-family:'Courier New',Consolas,monospace;text-shadow:0 0 30px rgba(255,255,255,0.25);"></div>
-  <div id="clock-date" style="font-size:1.25rem;color:rgba(255,255,255,0.85);margin-top:10px;letter-spacing:4px;font-family:'Microsoft YaHei','PingFang SC',sans-serif;"></div>
+  <div id="clock-date" data-lunar="${lunarStr}" style="font-size:1.25rem;color:rgba(255,255,255,0.85);margin-top:10px;letter-spacing:4px;font-family:'Microsoft YaHei','PingFang SC',sans-serif;"></div>
 </div>`;
 
   const menu = config.search_engine.map((link, key) =>
@@ -258,9 +304,6 @@ function renderHTML(index, hitokotoScript = '') {
     #myVideo { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); }
     #head { background: rgba(0,0,0,0) !important; position: relative; min-height: 0 !important; padding: 0 0 5em !important; margin-bottom: -1.5em !important; overflow: hidden; z-index: 1; }
     #nav, #title { position: relative; z-index: 2; }
-    #nav { padding-top: 1.4em !important; padding-bottom: 0 !important; }
-    #nav .menu { background: transparent !important; border: none !important; justify-content: center; min-height: 0 !important; }
-    #nav .item { font-size: 0.95rem !important; letter-spacing: 2px; opacity: 0.85; text-shadow: 0 1px 6px rgba(0,0,0,0.4); padding: 0.4em 1em !important; }
     #clock-display { margin-top: 1.8em !important; margin-bottom: 1.2em !important; }
     #clock-time { font-size: 5rem !important; letter-spacing: 8px !important; }
     #clock-date { font-size: 1.25rem !important; letter-spacing: 4px !important; margin-top: 10px !important; }
@@ -343,7 +386,6 @@ function renderHTML(index, hitokotoScript = '') {
       #head { padding: 0 !important; }
       #clock-time { font-size: 3rem !important; letter-spacing: 4px !important; }
       #clock-date { font-size: 0.95rem !important; letter-spacing: 2px !important; }
-      #nav .item { font-size: 0.9rem !important; }
       #search-wrap { width: calc(100vw - 2rem); }
       #searchinput { font-size: 1.08rem; padding: 0.95em 3.8em 0.95em 1.2em; }
       #search-btn-inner { font-size: 1.3rem; width: 3.5em; }
@@ -362,8 +404,6 @@ function renderHTML(index, hitokotoScript = '') {
       #head { padding: 0 !important; }
       #clock-time { font-size: 2.4rem !important; letter-spacing: 2px !important; }
       #clock-date { font-size: 0.82rem !important; letter-spacing: 1px !important; }
-      #nav { padding-top: 1.1em !important; }
-      #nav .item { font-size: 0.8rem !important; letter-spacing: 0.5px; }
       #search-wrap { width: calc(100vw - 1.2rem); }
       #searchinput { font-size: 1.05rem; padding: 0.9em 3.5em 0.9em 1.1em; }
       #search-btn-inner { font-size: 1.25rem; width: 3.3em; }
@@ -387,13 +427,12 @@ function renderHTML(index, hitokotoScript = '') {
       var h = String(now.getHours()).padStart(2,'0');
       var m = String(now.getMinutes()).padStart(2,'0');
       var s = String(now.getSeconds()).padStart(2,'0');
-      var y = now.getFullYear();
-      var mo = String(now.getMonth()+1).padStart(2,'0');
-      var d = String(now.getDate()).padStart(2,'0');
+      var y = now.getFullYear(), mo = now.getMonth()+1, d = now.getDate();
       var timeEl = document.getElementById('clock-time');
       var dateEl = document.getElementById('clock-date');
+      var lunar = dateEl ? (dateEl.getAttribute('data-lunar') || '') : '';
       if (timeEl) timeEl.innerHTML = h+'<span class="clock-colon">:</span>'+m+'<span class="clock-colon">:</span>'+s;
-      if (dateEl) dateEl.textContent = y+' \u5e74 '+mo+' \u6708 '+d+' \u65e5\u3000'+weeks[now.getDay()];
+      if (dateEl) dateEl.innerHTML = y+' \u5e74 '+String(mo).padStart(2,'0')+' \u6708 '+String(d).padStart(2,'0')+' \u65e5\u3000'+weeks[now.getDay()]+'\u3000'+lunar;
     }
     updateClock();
     setInterval(updateClock, 1000);
@@ -443,6 +482,18 @@ function renderHTML(index, hitokotoScript = '') {
       var style = document.createElement('style');
       style.textContent = 'body{margin:0!important;padding:0!important}.pusher{padding-top:0!important;margin-top:0!important}header{margin:0!important}main{margin-top:0!important;padding-top:0!important}.ui.inverted.vertical.masthead.segment{margin-bottom:0!important}';
       document.head.appendChild(style);
+    });
+
+    window.addEventListener('load', function() {
+      var fallback = 'https://obs.weizhen.xyz/Favicon.png';
+      document.querySelectorAll('img[data-favicon]').forEach(function(img) {
+        var src = img.getAttribute('data-favicon');
+        if (!src) return;
+        var tester = new Image();
+        tester.onload = function() { img.src = src; };
+        tester.onerror = function() { img.src = fallback; };
+        tester.src = src;
+      });
     });
   </script>
   <script src="https://obs.weizhen.xyz/sites.mouse.js"></script>

@@ -28,7 +28,7 @@ const config = {
         { url: "https://yunwei.keytop.cn",                                                            name: "运维中心管理平台",    desc: "运维中心管理平台",           icon: "https://obs.weizhen.xyz/favicon/kt-yw.ico" },
         { url: "https://dc.keytop.cn/app/manage/index.html",                                         name: "BI系统",            desc: "科拓BI系统",                icon: "https://obs.weizhen.xyz/favicon/dc.keytop.ico" },
         { url: "https://file.weizhen.xyz",                                                            name: "文件传输服务",       desc: "文件传输服务",              icon: "https://obs.weizhen.xyz/favicon/file.png" },
-        { url: "https://kos.keytop.cn/dkqfront/pc.html#/Login",                                      name: "商户助手PC版",       desc: "商户助手PC版",              icon: "https://obs.weizhen.xyz/favicon/kt-shzs.ico" },
+        { url: "https://kos.keytop.cn/dkqfront/pc.html#/Login",                                      name: "商户助手PC版",       desc: "商户助手PC版",              icon: "https://obs.weizhen.xyz/favicon/kt-yzs.png" },
         { url: "https://yongce.keytop.cn/unityp/login",                                              name: "科拓永策平台",       desc: "科拓永策平台",              icon: "https://obs.weizhen.xyz/favicon/kt-yc.png" },
         { url: "https://kp-open.keytop.cn/api/index.html",                                           name: "统一接口管理平台",    desc: "接口管理平台",              icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
         { url: "https://kt-chongdz.keytop.cn/manage/login",                                          name: "大圣充电平台",       desc: "大圣充电",                  icon: "https://kt-chongdz.keytop.cn/manage/favicon.ico" },
@@ -270,7 +270,7 @@ function renderHTML(index, hitokotoScript = '') {
     ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.18);border-radius:3px}
     ::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.32)}
     .video-background{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;z-index:0}
-    .video-background::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.55))}
+    .video-background::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.2))}
     #myVideo{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%)}
     #head{background:transparent!important;position:relative;min-height:0!important;padding:0 0 5em!important;margin-bottom:-1.5em!important;overflow:hidden;z-index:1}
     #title{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center;padding:0}
@@ -331,7 +331,7 @@ function renderHTML(index, hitokotoScript = '') {
     #dark-mode-toggle{position:fixed;bottom:28px;right:28px;z-index:999;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.92);color:#555;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.15);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .2s;backdrop-filter:blur(8px)}
     #dark-mode-toggle:hover{transform:scale(1.12) rotate(15deg);box-shadow:0 6px 24px rgba(0,0,0,.2)}
     #dark-mode-toggle i{margin:0;font-size:1.2rem}
-    body.dark-mode{background-color:#12131a!important;background-image:none!important}
+    body.dark-mode{background-color:#0f1219!important;background-image:none!important}
     body.dark-mode main{background:transparent!important}
     body.dark-mode .ui.cards>.card{background:#1e2030!important;border-color:rgba(255,255,255,.06)!important;box-shadow:0 2px 14px rgba(0,0,0,.4)!important}
     body.dark-mode .ui.cards>.card:hover{box-shadow:0 14px 36px rgba(99,179,237,.12)!important}

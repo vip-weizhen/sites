@@ -28,7 +28,7 @@ const config = {
         { url: "https://yunwei.keytop.cn",                                                            name: "运维中心管理平台",    desc: "运维中心管理平台",           icon: "https://obs.weizhen.xyz/favicon/kt-yw.ico" },
         { url: "https://dc.keytop.cn/app/manage/index.html",                                         name: "BI系统",            desc: "科拓BI系统",                icon: "https://obs.weizhen.xyz/favicon/dc.keytop.ico" },
         { url: "https://file.weizhen.xyz",                                                            name: "文件传输服务",       desc: "文件传输服务",              icon: "https://obs.weizhen.xyz/favicon/file.png" },
-        { url: "https://kos.keytop.cn/dkqfront/pc.html#/Login",                                      name: "商户助手PC版",       desc: "商户助手PC版",              icon: "https://obs.weizhen.xyz/favicon/kt-yzs.png" },
+        { url: "https://kos.keytop.cn/dkqfront/pc.html#/Login",                                      name: "商户助手PC版",       desc: "商户助手PC版",              icon: "https://obs.weizhen.xyz/favicon/kt-shzs.ico" },
         { url: "https://yongce.keytop.cn/unityp/login",                                              name: "科拓永策平台",       desc: "科拓永策平台",              icon: "https://obs.weizhen.xyz/favicon/kt-yc.png" },
         { url: "https://kp-open.keytop.cn/api/index.html",                                           name: "统一接口管理平台",    desc: "接口管理平台",              icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
         { url: "https://kt-chongdz.keytop.cn/manage/login",                                          name: "大圣充电平台",       desc: "大圣充电",                  icon: "https://kt-chongdz.keytop.cn/manage/favicon.ico" },

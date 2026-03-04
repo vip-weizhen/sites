@@ -28,7 +28,7 @@ const config = {
         { url: "https://yunwei.keytop.cn",                                                            name: "运维中心管理平台",    desc: "运维中心管理平台",           icon: "https://obs.weizhen.xyz/favicon/kt-yw.ico" },
         { url: "https://dc.keytop.cn/app/manage/index.html",                                         name: "BI系统",            desc: "科拓BI系统",                icon: "https://obs.weizhen.xyz/favicon/dc.keytop.ico" },
         { url: "https://file.weizhen.xyz",                                                            name: "文件传输服务",       desc: "文件传输服务",              icon: "https://obs.weizhen.xyz/favicon/file.png" },
-        { url: "https://kos.keytop.cn/dkqfront/pc.html#/Login",                                      name: "商户助手PC版",       desc: "商户助手PC版",              icon: "https://obs.weizhen.xyz/favicon/kt-yzs.png" },
+        { url: "https://kos.keytop.cn/dkqfront/pc.html#/Login",                                      name: "商户助手PC版",       desc: "商户助手PC版",              icon: "https://obs.weizhen.xyz/favicon/kt-shzs.ico" },
         { url: "https://yongce.keytop.cn/unityp/login",                                              name: "科拓永策平台",       desc: "科拓永策平台",              icon: "https://obs.weizhen.xyz/favicon/kt-yc.png" },
         { url: "https://kp-open.keytop.cn/api/index.html",                                           name: "统一接口管理平台",    desc: "接口管理平台",              icon: "https://obs.weizhen.xyz/favicon/keytop-favicon.ico" },
         { url: "https://kt-chongdz.keytop.cn/manage/login",                                          name: "大圣充电平台",       desc: "大圣充电",                  icon: "https://kt-chongdz.keytop.cn/manage/favicon.ico" },
@@ -270,16 +270,16 @@ function renderHTML(index, hitokotoScript = '') {
     ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.18);border-radius:3px}
     ::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.32)}
     .video-background{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;z-index:0}
-    .video-background::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.2))}
+    .video-background::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.25))}
     #myVideo{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%)}
     #head{background:transparent!important;position:relative;min-height:0!important;padding:0 0 5em!important;margin-bottom:-1.5em!important;overflow:hidden;z-index:1}
     #title{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center;padding:0}
     #clock-display{margin-top:1.8em!important;margin-bottom:1.2em!important;display:flex;flex-direction:column;align-items:center;padding:0 40px}
-    #clock-time{font-size:5rem;font-weight:700;color:#fff;letter-spacing:8px;line-height:1;font-family:'Courier New',Consolas,monospace;text-shadow:0 0 30px rgba(255,255,255,.25)}
-    #clock-date{font-size:1.25rem;color:rgba(255,255,255,.85);margin-top:10px;letter-spacing:4px;font-family:'Microsoft YaHei','PingFang SC',sans-serif}
+    #clock-time{font-size:5rem;font-weight:700;color:#fff;letter-spacing:8px;line-height:1;font-family:'Courier New',Consolas,monospace;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+    #clock-date{font-size:1.25rem;color:rgba(255,255,255,.9);margin-top:10px;letter-spacing:4px;font-family:'Microsoft YaHei','PingFang SC',sans-serif;text-shadow:0 1px 8px rgba(0,0,0,.3)}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
     .clock-colon{animation:pulse 1s ease-in-out infinite}
-    #search-wrap{display:block;width:min(760px,calc(100vw - 2rem));filter:drop-shadow(0 8px 32px rgba(0,0,0,.4))}
+    #search-wrap{display:block;width:min(760px,calc(100vw - 2rem));filter:drop-shadow(0 8px 32px rgba(0,0,0,.3))}
     #search-box{position:relative;display:block;width:100%}
     #searchinput{display:block;width:100%;border:1.5px solid rgba(255,255,255,.45);outline:none;background:rgba(255,255,255,.18);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);color:#fff;font-size:1.08rem;padding:.92em 3.8em .92em 1.4em;border-radius:14px 14px 0 0;font-family:'Microsoft YaHei','PingFang SC',sans-serif;transition:background .2s,border-color .2s}
     #searchinput::placeholder{color:rgba(255,255,255,.6)}
@@ -312,8 +312,8 @@ function renderHTML(index, hitokotoScript = '') {
     .ui.cards>.card .content .header{font-size:1rem!important;font-weight:600!important;color:#1a1a2e!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0!important;line-height:1.4}
     .ui.cards>.card .content .meta{font-size:.82rem!important;color:#999!important;margin-top:4px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
     .ui.cards>.card img.avatar{width:38px!important;height:38px!important;border-radius:9px!important;flex-shrink:0!important;object-fit:contain!important;background:transparent!important;border:none!important;box-shadow:none!important;margin:0!important;float:none!important}
-    #weather-widget{position:absolute;top:14px;right:18px;z-index:3;background:rgba(0,0,0,.3);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:16px 20px;color:#fff;font-family:'Microsoft YaHei','PingFang SC',sans-serif;min-width:280px}
-    #hitokoto-widget{position:absolute;top:14px;left:18px;z-index:3;background:rgba(0,0,0,.3);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:14px 18px;color:#fff;font-family:'Microsoft YaHei','PingFang SC',sans-serif;max-width:260px;display:flex;align-items:flex-start;gap:8px}
+    #weather-widget{position:absolute;top:14px;right:18px;z-index:3;background:rgba(0,0,0,.25);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:16px 20px;color:#fff;font-family:'Microsoft YaHei','PingFang SC',sans-serif;min-width:280px}
+    #hitokoto-widget{position:absolute;top:14px;left:18px;z-index:3;background:rgba(0,0,0,.25);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:14px 18px;color:#fff;font-family:'Microsoft YaHei','PingFang SC',sans-serif;max-width:260px;display:flex;align-items:flex-start;gap:8px}
     #hitokoto-widget .quote.left.icon{font-size:1rem;opacity:.45;flex-shrink:0;margin-top:3px}
     #hitokoto-widget #hitokoto{font-size:.86rem;line-height:1.75;opacity:.88;letter-spacing:.5px}
     .weather-city{font-size:1rem;font-weight:600;opacity:.95;margin-bottom:12px;letter-spacing:1.5px;text-align:center}
@@ -331,7 +331,7 @@ function renderHTML(index, hitokotoScript = '') {
     #dark-mode-toggle{position:fixed;bottom:28px;right:28px;z-index:999;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.92);color:#555;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.15);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .2s;backdrop-filter:blur(8px)}
     #dark-mode-toggle:hover{transform:scale(1.12) rotate(15deg);box-shadow:0 6px 24px rgba(0,0,0,.2)}
     #dark-mode-toggle i{margin:0;font-size:1.2rem}
-    body.dark-mode{background-color:#0f1219!important;background-image:none!important}
+    body.dark-mode{background-color:#12131a!important;background-image:none!important}
     body.dark-mode main{background:transparent!important}
     body.dark-mode .ui.cards>.card{background:#1e2030!important;border-color:rgba(255,255,255,.06)!important;box-shadow:0 2px 14px rgba(0,0,0,.4)!important}
     body.dark-mode .ui.cards>.card:hover{box-shadow:0 14px 36px rgba(99,179,237,.12)!important}

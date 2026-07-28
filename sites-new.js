@@ -8,8 +8,8 @@ const config = {
     { name: "百度地图", template: "https://map.baidu.com/search?querytype=s&da_src=shareurl&wd=$s" },
     { name: "高德地图", template: "https://ditu.amap.com/search?query=$s" },
     { name: "快递",    template: "https://www.kuaidi100.com/?coname=toutiao&nu=$s" },
-    { name: "音乐",    template: "https://www.pjmp3.com/search.php?keyword=$s" },
-    { name: "影视",    template: "https://v.ikanbot.com/search?q=$s" },
+    { name: "音乐",    template: "https://www.buguyy.top/search?keyword=$s" },
+    { name: "影视",    template: "https://weizhen.ikanbot.com/search?q=$s" },
     { name: "调试",    template: "https://kt-ts.weizhen.xyz/?name=$s" },
     { name: "维保",    template: "https://kt-wb.weizhen.xyz/?name=$s" }
   ],
@@ -80,7 +80,7 @@ const config = {
         { url: "https://mail.google.com/",     name: "Gmail",     desc: "谷歌邮箱" },
         { url: "https://www.youtube.com/",     name: "Youtube",   desc: "油管" },
         { url: "https://www.facebook.com/",    name: "Facebook",  desc: "脸书" },
-        { url: "https://twitter.com/",         name: "Twitter",   desc: "推特" },
+        { url: "https://x.com/",         name: "X/Twitter",   desc: "推特" },
         { url: "https://www.twitch.tv/",       name: "Twitch",    desc: "推趣" },
         { url: "https://www.instagram.com/",   name: "Instagram", desc: "照片墙" },
         { url: "https://web.telegram.org/#/im",name: "Telegram",  desc: "电报" },
@@ -90,10 +90,10 @@ const config = {
     {
       name: "工具集", icon: "cogs",
       list: [
-        { url: "https://tools.weizhen.xyz",                                          name: "IT-Tools",  desc: "助力开发人员和IT工作者", icon: "https://obs.weizhen.xyz/favicon/tools.png" },
+        { url: "https://it-tools.tech",                                          name: "IT-Tools",  desc: "助力开发人员和IT工作者", icon: "https://obs.weizhen.xyz/favicon/tools.png" },
         { url: "https://tts.weizhen.xyz",                                            name: "文本转语音", desc: "在线TTS转换工具",        icon: "https://obs.weizhen.xyz/favicon/TTS.png" },
-        { url: "https://sub.weizhen.xyz/sub?token=e7a8244ea81ace268547f7cd66520350", name: "FQ代理节点", desc: "科学上网节点订阅链接",    icon: "https://obs.weizhen.xyz/favicon/v2rayn.png" },
-        { url: "https://sub-api.weizhen.xyz",                                        name: "订阅转换",  desc: "在线订阅转换工具",        icon: "https://obs.weizhen.xyz/favicon/sub-api.ico" },
+        { url: "https://cdn.weizhen.xyz/https://hhsxy.vavava.kdns.fr/sub?token=1a5ea6321998fb41f713e07105aea297", name: "FQ代理节点", desc: "科学上网节点订阅链接",    icon: "https://obs.weizhen.xyz/favicon/v2rayn.png" },
+        { url: "https://sub.cmliussss.com",                                        name: "订阅转换",  desc: "在线订阅转换工具",        icon: "https://obs.weizhen.xyz/favicon/sub-api.ico" },
         { url: "https://tvhelper.weizhen.xyz",                                       name: "IPTV",     desc: "IPTV直播源",             icon: "https://obs.weizhen.xyz/favicon/iptv.ico" },
         { url: "https://tvbox.weizhen.xyz",                                          name: "TVBOX",    desc: "TVBOX点播源",            icon: "https://obs.weizhen.xyz/favicon/tvbox.png" },
         { url: "https://url.weizhen.xyz",                                            name: "网址缩短",  desc: "短链生成器",              icon: "https://obs.weizhen.xyz/favicon/url.png" },
@@ -223,6 +223,8 @@ function renderIndex(weatherHtml, lunarStr) {
     "https://obs.weizhen.xyz/bgv/rain.mp4",
     "https://obs.weizhen.xyz/bgv/rain-1.mp4",
     "https://obs.weizhen.xyz/bgv/sea.mp4"
+  
+
   ];
   const media = mediaList[Math.floor(Math.random() * mediaList.length)];
   const bg = media.endsWith('.mp4')

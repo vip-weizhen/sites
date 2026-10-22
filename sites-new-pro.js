@@ -94,7 +94,7 @@ const config = {
         { url: "https://tts.weizhen.xyz",                                            name: "文本转语音", desc: "在线TTS转换工具",        icon: "https://obs.weizhen.xyz/favicon/TTS.png" },
         { url: "https://url.weizhen.xyz/node", name: "FQ代理节点", desc: "科学上网节点订阅链接",    icon: "https://obs.weizhen.xyz/favicon/v2rayn.png" },
         { url: "https://sub.cmliussss.com",                                        name: "订阅转换",  desc: "在线订阅转换工具",        icon: "https://obs.weizhen.xyz/favicon/sub-api.ico" },
-        { url: "https://tvhelper.weizhen.xyz",                                       name: "IPTV",     desc: "IPTV直播源",             icon: "https://obs.weizhen.xyz/favicon/iptv.ico" },
+        { url: "https://iptv.weizhen.xyz/interface.m3u",                                       name: "IPTV",     desc: "IPTV直播源",             icon: "https://obs.weizhen.xyz/favicon/iptv.ico" },
         { url: "https://tvbox.weizhen.xyz",                                          name: "TVBOX",    desc: "TVBOX点播源",            icon: "https://obs.weizhen.xyz/favicon/tvbox.png" },
         { url: "https://url.weizhen.xyz",                                            name: "网址缩短",  desc: "短链生成器",              icon: "https://obs.weizhen.xyz/favicon/url.png" },
         { url: "https://js.weizhen.xyz",                                             name: "镜像加速",  desc: "GitHub Docker加速",      icon: "https://obs.weizhen.xyz/favicon/docker.png" }

@@ -229,7 +229,7 @@ function renderSideNav() {
 
 function renderIndex(weatherHtml, lunarStr) {
   const mediaList = [
-    "https://wp.upx8.com/api.php?category=nature&resolution=1920x1080"
+"https://wp.upx8.com/api.php?category=nature&resolution=1920x1080"
   ];
   const media = mediaList[Math.floor(Math.random() * mediaList.length)];
   const bg = media.endsWith('.mp4')
@@ -293,14 +293,14 @@ function renderHTML(index, hitokotoScript = '') {
     body.dark-mode .video-background::after{background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.65))}
     body.dark-mode #myVideo{filter:none}
     #myVideo{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover;filter:brightness(1.05) saturate(1.1)}
-    #head{background:transparent!important;position:relative;min-height:0!important;padding:0 0 1.2em!important;margin-bottom:0!important;overflow:hidden;z-index:1}
+    #head{background:transparent!important;position:relative;min-height:0!important;padding:0 0 1.2em!important;margin-bottom:0!important;overflow:visible;border:none!important;box-shadow:none!important;z-index:1}
     #title{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center;padding:0}
     #clock-display{margin-top:1.8em!important;margin-bottom:1.2em!important;display:flex;flex-direction:column;align-items:center;padding:0 40px}
     #clock-time{font-size:5rem;font-weight:700;color:#fff;letter-spacing:8px;line-height:1;font-family:'Courier New',Consolas,monospace;text-shadow:0 2px 4px rgba(0,0,0,.35),0 4px 28px rgba(0,0,0,.55)}
     #clock-date{font-size:1.25rem;color:#fff;font-weight:600;margin-top:10px;letter-spacing:4px;font-family:'Microsoft YaHei','PingFang SC',sans-serif;text-shadow:0 1px 3px rgba(0,0,0,.4),0 2px 12px rgba(0,0,0,.55)}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
     .clock-colon{animation:pulse 1s ease-in-out infinite}
-    #search-wrap{display:block;width:min(760px,calc(100vw - 2rem));border-radius:14px;box-shadow:0 8px 32px rgba(30,40,80,.22)}
+    #search-wrap{display:block;width:min(760px,calc(100vw - 2rem));border-radius:14px;box-shadow:0 6px 20px rgba(20,30,60,.18)}
     #search-box{position:relative;display:block;width:100%}
     #searchinput{display:block;width:100%;border:1px solid rgba(255,255,255,.35);outline:none;background:rgba(18,22,38,.30);backdrop-filter:blur(10px) saturate(170%) brightness(.92);-webkit-backdrop-filter:blur(10px) saturate(170%) brightness(.92);box-shadow:inset 0 1px 0 rgba(255,255,255,.35);color:#fff;font-weight:600;text-shadow:0 1px 6px rgba(0,0,0,.55);font-size:1.08rem;padding:.92em 3.8em .92em 1.4em;border-radius:14px 14px 0 0;font-family:'Microsoft YaHei','PingFang SC',sans-serif;transition:background .2s,border-color .2s}
     #searchinput::placeholder{color:rgba(255,255,255,.85);font-weight:500}
